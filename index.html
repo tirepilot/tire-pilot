@@ -192,15 +192,53 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 
 <!-- SERVICE AREA -->
 <section id="area" class="py-20 text-center">
-<h2 class="text-4xl gold font-bold mb-12" data-en="Service Area" data-fr="Zone de service">Service Area</h2>
-<p class="text-gray-300 mb-10" data-en="We provide mobile tire services across these areas." data-fr="Nous fournissons des services de pneus mobiles dans ces zones.">We provide mobile tire services across these areas.</p>
-<div class="max-w-5xl mx-auto rounded-xl overflow-hidden border border-yellow-600 service-map">
-<iframe src="https://www.google.com/maps?q=Scarborough&output=embed" width="100%" height="450" allowfullscreen="" loading="lazy"></iframe>
-</div>
-<div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-10 text-gray-300">
-<p>Scarborough</p><p>Toronto</p><p>Ajax</p><p>Pickering</p><p>Markham</p><p>Vaughan</p><p>North York</p><p>Oshawa</p>
-</div>
+  <h2 class="text-4xl gold font-bold mb-12" data-en="Service Area" data-fr="Zone de service">Service Area</h2>
+  <p class="text-gray-300 mb-10" data-en="We provide mobile tire services across these areas." data-fr="Nous fournissons des services de pneus mobiles dans ces zones.">We provide mobile tire services across these areas.</p>
+
+  <!-- Map Container -->
+  <div id="map" class="w-full h-96 rounded-xl border border-yellow-600"></div>
+
+  <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-10 text-gray-300">
+    <p>Scarborough</p><p>Toronto</p><p>Ajax</p><p>Pickering</p>
+    <p>Markham</p><p>Vaughan</p><p>North York</p><p>Oshawa</p>
+  </div>
 </section>
+
+<!-- Google Maps Script -->
+<script>
+  function initMap() {
+    const locations = [
+      { name: "Scarborough, ON, CA", lat: 43.773, lng: -79.257 },
+      { name: "Toronto, ON, CA", lat: 43.653, lng: -79.383 },
+      { name: "Ajax, ON, CA", lat: 43.850, lng: -79.020 },
+      { name: "Pickering, ON, CA", lat: 43.838, lng: -79.085 },
+      { name: "Markham, ON, CA", lat: 43.856, lng: -79.337 },
+      { name: "Vaughan, ON, CA", lat: 43.837, lng: -79.508 },
+      { name: "North York, ON, CA", lat: 43.761, lng: -79.411 },
+      { name: "Oshawa, ON, CA", lat: 43.897, lng: -78.865 }
+    ];
+
+    // Map center — can be average or first location
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 10,
+      center: { lat: 43.7, lng: -79.3 },
+    });
+
+    // Add markers
+    locations.forEach(loc => {
+      new google.maps.Marker({
+        position: { lat: loc.lat, lng: loc.lng },
+        map: map,
+        title: loc.name
+      });
+    });
+  }
+</script>
+
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ydp6mqz67yUKBJAq7GX6hQO9GhCEprg&callback=initMap">
+</script>
+
 
 <!-- FOOTER -->
 <footer id="contact">
