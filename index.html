@@ -1,354 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tire Pilot – Futuristic Mobile Tire Service</title>
+
+<title>TirePilot | 24/7 Mobile Tire Service Toronto</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Social Meta -->
-<meta name="description" content="TirePilot provides quick and reliable tire services including off-rim tire change, flat repair, wheel balancing, and more.">
-<meta property="og:title" content="TirePilot – Fast & Reliable Tire Services">
-<meta property="og:description" content="Get your tires serviced quickly and safely with TirePilot. Off-rim tire change, flat repair, wheel balancing, and tire rotation services available.">
-<meta property="og:image" content="https://tirepilot.ca/logo.png">
-<meta property="og:url" content="https://tirepilot.ca">
+<!-- SEO -->
+<meta name="description" content="24/7 Mobile Tire Service in Toronto. Flat tire repair, seasonal tire change, wheel balancing and roadside assistance.">
+<meta name="keywords" content="mobile tire service Toronto, roadside tire repair, flat tire repair Toronto, tire change near me">
+<meta name="author" content="TirePilot">
+
+<!-- Social -->
+<meta property="og:title" content="TirePilot Mobile Tire Service">
+<meta property="og:description" content="Fast professional roadside tire repair and installation">
+<meta property="og:image" content="logo.png">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="TirePilot – Fast & Reliable Tire Services">
-<meta name="twitter:description" content="Quick, professional tire services at your fingertips. Off-rim tire change, flat repair, wheel balancing, and more.">
-<meta name="twitter:image" content="https://tirepilot.ca/logo.png">
-<link rel="icon" href="https://tirepilot.ca/logo.png" type="image/png">
+
+<link rel="icon" href="logo.png">
 
 <style>
-body {
-  font-family: 'Inter', Arial, sans-serif;
-  background: #0b0b0b;
-  color: white;
-  scroll-behavior: smooth;
-  margin: 0;
+
+body{
+background:#0b0b0b;
+color:white;
+font-family:Inter,Arial;
+scroll-behavior:smooth;
+margin:0;
 }
 
-/* ---------- Color Palette ---------- */
-.gold { color: #d4af37; }
-.blue-bg { background-color: rgba(15, 42, 68, 0.75); }
-
-/* ---------- Left Top Dot Nav ---------- */
-.dot-nav {
-  position: fixed;
-  top: 6rem;
-  left: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 100;
+/* GOLD */
+.gold{
+color:#d4af37;
 }
 
-.dot-nav button {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 2px solid #d4af37;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* NAVBAR */
+header{
+background:black;
+position:sticky;
+top:0;
+z-index:999;
 }
 
-.dot-nav button.active,
-.dot-nav button:hover {
-  background: #d4af37;
-  transform: scale(1.3);
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(hero.jpg);
+background-size:cover;
+background-position:center;
+overflow:hidden;
 }
 
-/* ---------- Hero Section ---------- */
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("hero.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+.hero h1{
+font-size:4.5rem;
+font-weight:900;
+background:linear-gradient(90deg,#d4af37,#ffd966);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.hero h1 {
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 4.5rem;
-  line-height: 1.1;
-  background: linear-gradient(90deg, #d4af37, #ffd966);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hero-buttons a{
+padding:14px 28px;
+border-radius:10px;
+font-weight:bold;
+transition:.3s;
 }
 
-.hero p {
-  font-size: 1.5rem;
-  color: rgba(255,255,255,0.85);
-  margin-top: 0.5rem;
+.button-primary{
+background:linear-gradient(90deg,#d4af37,#ffd966);
+color:black;
 }
 
-.hero .hero-buttons a {
-  padding: 1rem 2rem;
-  border-radius: 0.75rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
+.button-primary:hover{
+transform:scale(1.05);
 }
 
-.button-primary {
-  background: linear-gradient(90deg, #d4af37, #ffd966);
-  color: black;
-  font-weight: 700;
-  transition: all 0.3s ease;
+/* SERVICES */
+
+.services{
+padding:100px 20px;
 }
 
-.button-primary:hover {
-  transform: scale(1.05);
-  background: linear-gradient(90deg, #ffd966, #d4af37);
+.card{
+background:rgba(0,0,0,.4);
+border:1px solid rgba(212,175,55,.25);
+padding:40px 25px;
+border-radius:15px;
+opacity:0;
+transform:translateY(40px);
+transition:all .7s;
 }
 
-.hero-buttons a.button-primary {
-  animation: float 3s ease-in-out infinite;
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 35px rgba(212,175,55,.3);
 }
 
-/* ---------- Navbar ---------- */
-header {
-  backdrop-filter: blur(12px);
-  background: rgba(0,0,0,0.5);
-}
+/* BOOKING */
 
-header nav a {
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-/* ---------- Services ---------- */
-.services-banner {
-  padding: 6rem 1rem;
-}
-
-.card {
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(16px);
-  border-radius: 1rem;
-  padding: 2.5rem 1.5rem;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  transition: all 0.8s ease-out;
-  opacity: 0;
-  transform: translateY(50px);
-}
-
-.card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
-}
-
-/* ---------- Booking Form ---------- */
-.booking-card {
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(16px);
-  border-radius: 1rem;
-  padding: 3rem;
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  transition: all 0.3s ease;
+.booking-card{
+background:rgba(0,0,0,.35);
+border:1px solid rgba(212,175,55,.3);
+padding:50px;
+border-radius:20px;
 }
 
 .booking-card input,
-.booking-card select {
-  width: 100%;
-  background: rgba(28,45,64,0.9);
-  border: 1px solid #d4af37;
-  border-radius: 0.75rem;
-  padding: 1rem 1.5rem;
-  color: white;
-  transition: all 0.3s ease;
+.booking-card select{
+
+width:100%;
+padding:16px;
+border-radius:10px;
+border:1px solid #d4af37;
+background:#132a3a;
+color:white;
 }
 
-.booking-card input:focus,
-.booking-card select:focus {
-  border-color: #d4af37;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+/* DOT NAV */
+
+.dot-nav{
+position:fixed;
+left:15px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:14px;
+z-index:999;
 }
 
-/* ---------- Footer ---------- */
-footer {
-  backdrop-filter: blur(12px);
-  background: rgba(0,0,0,0.4);
-  border-top: 1px solid rgba(212, 175, 55, 0.25);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  text-align: center;
+.dot-nav button{
+width:14px;
+height:14px;
+border-radius:50%;
+border:2px solid #d4af37;
 }
 
-footer p { color: rgba(255,255,255,0.75); }
+.dot-nav button.active{
+background:#d4af37;
+}
+
+/* FOOTER */
+
+footer{
+background:black;
+padding:60px 20px;
+text-align:center;
+border-top:1px solid rgba(212,175,55,.25);
+}
+
 </style>
+
 </head>
 <body>
 
-<!-- Left Top Dot Navigation -->
+
+<!-- DOT NAV -->
+
 <div class="dot-nav">
-  <button onclick="scrollToSection('services')" id="dot1"></button>
-  <button onclick="scrollToSection('how')" id="dot2"></button>
-  <button onclick="scrollToSection('book')" id="dot3"></button>
+<button id="dot1"></button>
+<button id="dot2"></button>
+<button id="dot3"></button>
 </div>
 
+
 <!-- NAVBAR -->
-<header class="bg-black shadow-lg sticky top-0 z-50 flex justify-between items-center px-5 py-3">
-  <img src="logo.png" class="h-12">
-  <nav class="space-x-6 hidden md:flex">
-    <a href="#services" class="hover:text-yellow-400" data-en="Services" data-fr="Services">Services</a>
-    <a href="#how" class="hover:text-yellow-400" data-en="How it Works" data-fr="Comment ça Marche">How it Works</a>
-    <a href="#book" class="hover:text-yellow-400" data-en="Book Service" data-fr="Réserver le Service">Book Service</a>
-    <a href="#contact" class="hover:text-yellow-400" data-en="Contact" data-fr="Contact">Contact</a>
-  </nav>
-  <div class="flex items-center gap-3">
-    <button id="langToggle" class="bg-gray-800 text-white px-3 py-1 rounded-lg font-bold">EN</button>
-    <a href="tel:6479839134" class="button-primary px-5 py-2 rounded-lg" data-en="Call Now" data-fr="Appeler">Call Now</a>
-  </div>
+
+<header class="flex justify-between items-center px-6 py-3">
+
+<img src="logo.png" class="h-10">
+
+<nav class="space-x-6 hidden md:flex">
+
+<a href="#services" data-en="Services" data-fr="Services">Services</a>
+<a href="#how" data-en="How it Works" data-fr="Comment ça Marche">How it Works</a>
+<a href="#book" data-en="Book Service" data-fr="Réserver">Book Service</a>
+<a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+
+</nav>
+
+<div class="flex gap-3">
+
+<button id="langToggle" class="bg-gray-800 px-3 py-1 rounded">EN</button>
+
+<a href="tel:6479839134" class="button-primary px-4 py-2 rounded" data-en="Call Now" data-fr="Appeler">Call Now</a>
+
+</div>
+
 </header>
 
+
+
 <!-- HERO -->
+
 <section class="hero">
-  <div>
-    <h1 data-en="Tire Pilot" data-fr="Pilote de Pneus">Tire Pilot</h1>
-    <p data-en="24/7 Mobile Tire Service" data-fr="Service de Pneus Mobile 24/7">24/7 Mobile Tire Service</p>
-    <p class="mt-4 text-gray-300" data-en="Premium roadside tire repair & installation" data-fr="Réparation et installation de pneus premium sur route">
-      Premium roadside tire repair & installation
-    </p>
-    <div class="hero-buttons mt-8 space-x-4">
-      <a href="#book" class="button-primary" data-en="Book Service" data-fr="Réserver le Service">Book Service</a>
-      <a href="tel:6479839134" class="border border-yellow-500 px-8 py-4 rounded-lg" data-en="Call Now" data-fr="Appeler">Call Now</a>
-    </div>
-  </div>
+
+<div>
+
+<h1 data-en="Tire Pilot" data-fr="Pilote de Pneus">Tire Pilot</h1>
+
+<p class="text-xl mt-2 text-gray-300"
+data-en="24/7 Mobile Tire Service"
+data-fr="Service Mobile 24/7">
+
+24/7 Mobile Tire Service
+
+</p>
+
+<div class="hero-buttons mt-8 space-x-4">
+
+<a href="#book" class="button-primary"
+data-en="Book Service"
+data-fr="Réserver">
+
+Book Service
+
+</a>
+
+<a href="tel:6479839134" class="border border-yellow-500 px-6 py-3 rounded"
+data-en="Call Now"
+data-fr="Appeler">
+
+Call Now
+
+</a>
+
+</div>
+
+</div>
+
 </section>
+
+
 
 <!-- SERVICES -->
-<section id="services" class="services-banner">
-  <h2 class="text-4xl text-center font-bold mb-14 gold" data-en="Our Services" data-fr="Nos Services">Our Services</h2>
-  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10 px-6">
-    <div class="card">
-      <h3 class="text-xl font-bold gold" data-en="Flat Tire Repair" data-fr="Réparation de Pneus Crevés">Flat Tire Repair</h3>
-      <p class="mt-4 text-gray-300" data-en="Quick roadside puncture repair." data-fr="Réparation rapide de crevaison sur route.">Quick roadside puncture repair.</p>
-    </div>
-    <div class="card">
-      <h3 class="text-xl font-bold gold" data-en="Tire Installation" data-fr="Installation de Pneus">Tire Installation</h3>
-      <p class="mt-4 text-gray-300" data-en="Professional mounting and balancing." data-fr="Montage et équilibrage professionnels.">Professional mounting and balancing.</p>
-    </div>
-    <div class="card">
-      <h3 class="text-xl font-bold gold" data-en="Seasonal Tire Change" data-fr="Changement de Pneus Saisonniers">Seasonal Tire Change</h3>
-      <p class="mt-4 text-gray-300" data-en="Winter & summer tire swap." data-fr="Échange de pneus hiver & été.">Winter & summer tire swap.</p>
-    </div>
-    <div class="card">
-      <h3 class="text-xl font-bold gold" data-en="Emergency Roadside" data-fr="Assistance Routière d'Urgence">Emergency Roadside</h3>
-      <p class="mt-4 text-gray-300" data-en="24/7 mobile assistance." data-fr="Assistance mobile 24/7.">24/7 mobile assistance.</p>
-    </div>
-  </div>
+
+<section id="services" class="services">
+
+<h2 class="text-4xl text-center gold font-bold mb-14"
+data-en="Our Services"
+data-fr="Nos Services">
+
+Our Services
+
+</h2>
+
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
+
+<div class="card">
+
+<h3 class="gold font-bold text-xl"
+data-en="Flat Tire Repair"
+data-fr="Réparation de Crevaison">
+
+Flat Tire Repair
+
+</h3>
+
+<p class="text-gray-300 mt-3"
+data-en="Fast roadside puncture repair"
+data-fr="Réparation rapide sur route">
+
+Fast roadside puncture repair
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 class="gold font-bold text-xl"
+data-en="Tire Installation"
+data-fr="Installation de Pneus">
+
+Tire Installation
+
+</h3>
+
+<p class="text-gray-300 mt-3"
+data-en="Professional mounting & balancing"
+data-fr="Montage et équilibrage">
+
+Professional mounting & balancing
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 class="gold font-bold text-xl"
+data-en="Seasonal Tire Change"
+data-fr="Changement Saisonnier">
+
+Seasonal Tire Change
+
+</h3>
+
+<p class="text-gray-300 mt-3"
+data-en="Winter and summer tire swap"
+data-fr="Pneus hiver / été">
+
+Winter and summer tire swap
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3 class="gold font-bold text-xl"
+data-en="Emergency Roadside"
+data-fr="Assistance Routière">
+
+Emergency Roadside
+
+</h3>
+
+<p class="text-gray-300 mt-3"
+data-en="24/7 mobile support"
+data-fr="Assistance mobile 24/7">
+
+24/7 mobile support
+
+</p>
+
+</div>
+
+</div>
+
 </section>
+
+
 
 <!-- HOW IT WORKS -->
+
 <section id="how" class="py-20 text-center">
-  <h2 class="text-4xl font-bold gold mb-14" data-en="How It Works" data-fr="Comment ça Marche">How It Works</h2>
-  <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-10 px-6">
-    <div><h3 class="text-3xl gold font-bold">1</h3><p class="mt-3 text-gray-300" data-en="Request service" data-fr="Demander le service">Request service</p></div>
-    <div><h3 class="text-3xl gold font-bold">2</h3><p class="mt-3 text-gray-300" data-en="Technician drives to you" data-fr="Le technicien se rend à vous">Technician drives to you</p></div>
-    <div><h3 class="text-3xl gold font-bold">3</h3><p class="mt-3 text-gray-300" data-en="Tire repaired or replaced" data-fr="Pneu réparé ou remplacé">Tire repaired or replaced</p></div>
-    <div><h3 class="text-3xl gold font-bold">4</h3><p class="mt-3 text-gray-300" data-en="Back on the road" data-fr="De retour sur la route">Back on the road</p></div>
-  </div>
+
+<h2 class="text-4xl gold font-bold mb-12"
+data-en="How It Works"
+data-fr="Comment ça Marche">
+
+How It Works
+
+</h2>
+
+<div class="grid md:grid-cols-4 max-w-6xl mx-auto gap-10">
+
+<div>
+<h3 class="text-3xl gold">1</h3>
+<p data-en="Request service" data-fr="Demander le service">Request service</p>
+</div>
+
+<div>
+<h3 class="text-3xl gold">2</h3>
+<p data-en="Technician comes to you" data-fr="Technicien arrive">Technician comes to you</p>
+</div>
+
+<div>
+<h3 class="text-3xl gold">3</h3>
+<p data-en="Tire fixed or replaced" data-fr="Pneu réparé">Tire fixed or replaced</p>
+</div>
+
+<div>
+<h3 class="text-3xl gold">4</h3>
+<p data-en="Back on the road" data-fr="De retour sur la route">Back on the road</p>
+</div>
+
+</div>
+
 </section>
+
+
 
 <!-- BOOK SERVICE -->
-<section id="book" class="py-20 blue-bg">
-  <h2 class="text-4xl text-center font-bold mb-14 gold" data-en="Request Mobile Tire Service" data-fr="Demander un Service Mobile de Pneus">Request Mobile Tire Service</h2>
-  <div class="max-w-2xl mx-auto p-10 rounded-xl booking-card">
-    <form action="https://formsubmit.co/avinashanicanada@gmail.com" method="POST" class="space-y-6">
-      <!-- Name -->
-      <div><label class="block mb-2 text-gray-300" data-en="Your Name *" data-fr="Votre Nom *">Your Name *</label>
-      <input type="text" name="Name" required /></div>
-      <!-- Phone -->
-      <div><label class="block mb-2 text-gray-300" data-en="Phone Number *" data-fr="Numéro de Téléphone *">Phone Number *</label>
-      <input type="tel" name="Phone" required /></div>
-      <!-- Location -->
-      <div><label class="block mb-2 text-gray-300" data-en="Location *" data-fr="Localisation *">Location *</label>
-      <input type="text" name="Location" required /></div>
-      <!-- Vehicle -->
-      <div><label class="block mb-2 text-gray-300" data-en="Vehicle Model and Year *" data-fr="Modèle et Année du Véhicule *">Vehicle Model and Year *</label>
-      <input type="text" name="Vehicle Model and Year" required /></div>
-      <!-- Service Needed -->
-      <div><label class="block mb-2 text-gray-300" data-en="Service Needed *" data-fr="Service Requis *">Service Needed *</label>
-        <select name="Service Needed" required>
-          <option value="" data-en="Select Service" data-fr="Sélectionnez le Service">Select Service</option>
-          <option data-en="Off-Rim Tire Change" data-fr="Changement de Pneus Hors Jante">Off-Rim Tire Change</option>
-          <option data-en="Rim Tire Change" data-fr="Changement de Pneus sur Jante">Rim Tire Change</option>
-          <option data-en="Flat Tire Repair" data-fr="Réparation de Pneu Crevé">Flat Tire Repair</option>
-          <option data-en="Wheel Balancing" data-fr="Équilibrage des Roues">Wheel Balancing</option>
-          <option data-en="Tire Rotation" data-fr="Rotation des Pneus">Tire Rotation</option>
-        </select>
-      </div>
-      <button type="submit" class="w-full py-4 rounded-lg button-primary" data-en="Request Service" data-fr="Demander le Service">Request Service</button>
-    </form>
-  </div>
+
+<section id="book" class="py-20">
+
+<h2 class="text-4xl text-center gold font-bold mb-12"
+data-en="Request Mobile Tire Service"
+data-fr="Demander un Service">
+
+Request Mobile Tire Service
+
+</h2>
+
+<div class="max-w-2xl mx-auto booking-card">
+
+<form action="https://formsubmit.co/avinashanicanada@gmail.com" method="POST" class="space-y-6">
+
+<input type="hidden" name="_subject" value="New TirePilot Booking">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="text" name="Name" placeholder="Your Name" required>
+
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+
+<input type="text" name="Location" placeholder="Location" required>
+
+<input type="text" name="Vehicle" placeholder="Vehicle Model and Year" required>
+
+<select name="Service">
+
+<option>Off-Rim Tire Change</option>
+<option>Rim Tire Change</option>
+<option>Flat Tire Repair</option>
+<option>Wheel Balancing</option>
+<option>Tire Rotation</option>
+
+</select>
+
+<button class="button-primary w-full py-4 rounded">
+
+Request Service
+
+</button>
+
+</form>
+
+</div>
+
 </section>
 
+
+
 <!-- FOOTER -->
-<footer id="contact" class="bg-black py-14 text-center">
-  <img src="logo.png" class="h-10 mx-auto mb-6">
-  <p class="gold" data-en="Tire Pilot Mobile Tire Service" data-fr="Service Mobile de Pneus Tire Pilot">Tire Pilot Mobile Tire Service</p>
-  <p class="mt-2" data-en="Phone: +1 (647) 983-9134" data-fr="Téléphone: +1 (647) 983-9134">Phone: +1 (647) 983-9134</p>
-  <p class="mt-10 text-gray-500" data-en="© 2026 Tire Pilot | All Rights Reserved" data-fr="© 2026 Tire Pilot | Tous droits réservés">© 2026 Tire Pilot | All Rights Reserved</p>
+
+<footer id="contact">
+
+<img src="logo.png" class="h-10 mx-auto mb-6">
+
+<p class="gold">TirePilot Mobile Tire Service</p>
+
+<p class="mt-2">Phone: +1 647-983-9134</p>
+
+<p class="text-gray-500 mt-8">© 2026 TirePilot</p>
+
 </footer>
 
-<script>
-// Parallax Hero
-window.addEventListener('scroll', function() {
-  const hero = document.querySelector('.hero');
-  let offset = window.pageYOffset;
-  hero.style.backgroundPositionY = offset * 0.5 + "px";
-});
 
-// Dot Nav Scroll
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  document.querySelectorAll('.dot-nav button').forEach(btn => btn.classList.remove('active'));
-  if(id==='services') document.getElementById('dot1').classList.add('active');
-  if(id==='how') document.getElementById('dot2').classList.add('active');
-  if(id==='book') document.getElementById('dot3').classList.add('active');
+
+<script>
+
+/* HERO PARALLAX */
+
+window.addEventListener("scroll",function(){
+
+let hero=document.querySelector(".hero")
+
+let offset=window.pageYOffset
+
+hero.style.backgroundPosition="center "+offset*0.4+"px"
+
+})
+
+
+
+/* SERVICE ANIMATION */
+
+const cards=document.querySelectorAll(".card")
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show")
+
 }
 
-// Slide-in cards on scroll
-const cards = document.querySelectorAll('.card');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
+})
 
-cards.forEach(card => observer.observe(card));
+})
 
-// Language Toggle
-let currentLang = 'en';
-document.getElementById('langToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'fr' : 'en';
-  document.getElementById('langToggle').textContent = currentLang.toUpperCase();
+cards.forEach(card=>observer.observe(card))
 
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.textContent = el.getAttribute(`data-${currentLang}`);
-  });
-});
+
+
+/* LANGUAGE SWITCH */
+
+let lang="en"
+
+document.getElementById("langToggle").onclick=function(){
+
+lang=lang==="en"?"fr":"en"
+
+this.innerText=lang.toUpperCase()
+
+document.querySelectorAll("[data-en]").forEach(el=>{
+
+el.textContent=el.getAttribute("data-"+lang)
+
+})
+
+}
+
+
+
 </script>
 
 </body>
