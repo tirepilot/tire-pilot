@@ -140,7 +140,14 @@ header nav a {
   border-radius: 1rem;
   padding: 2.5rem 1.5rem;
   border: 1px solid rgba(212, 175, 55, 0.25);
-  transition: all 0.4s ease;
+  transition: all 0.8s ease-out;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card:hover {
@@ -292,7 +299,19 @@ function scrollToSection(id) {
   if(id==='how') document.getElementById('dot2').classList.add('active');
   if(id==='book') document.getElementById('dot3').classList.add('active');
 }
-</script>
 
+// Slide-in cards on scroll
+const cards = document.querySelectorAll('.card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => observer.observe(card));
+</script>
 </body>
 </html>
