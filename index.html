@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TirePilot | 24/7 Mobile Tire Service Toronto</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <meta name="description" content="24/7 Mobile Tire Service in Toronto. Flat tire repair, seasonal tire change, wheel balancing and roadside assistance.">
 <meta name="keywords" content="mobile tire service Toronto, roadside tire repair, flat tire repair Toronto">
@@ -14,149 +15,79 @@
 <link rel="icon" href="logo.png">
 
 <style>
-body{
-background:#0b0b0b;
-color:white;
-font-family:Inter,Arial;
-scroll-behavior:smooth;
-margin:0;
+/* LOADER */
+#loader {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background:black; display:flex; justify-content:center; align-items:center; z-index:9999;
+  flex-direction:column;
 }
+#loader img { width:150px; }
 
-/* GOLD */
+/* BODY */
+body{margin:0;font-family:Inter,Arial;background:#0b0b0b;color:white;scroll-behavior:smooth;}
+
+/* GOLD COLOR */
 .gold{color:#d4af37;}
 
-/* NAVBAR */
-header{
-background:black;
-position:sticky;
-top:0;
-z-index:999;
-}
+/* HEADER */
+header{background:black;position:sticky;top:0;z-index:999;}
+header nav a{color:white;text-decoration:none;font-weight:500;transition:.3s;}
+header nav a:hover{color:#d4af37;}
 
 /* HERO */
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(hero.jpg);
-background-size:cover;
-background-position:center;
-}
-.hero h1{
-font-size:4.5rem;
-font-weight:900;
-background:linear-gradient(90deg,#d4af37,#ffd966);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+.hero{height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(hero.jpg);background-size:cover;background-position:center;}
+.hero h1{font-size:4.5rem;font-weight:900;background:linear-gradient(90deg,#d4af37,#ffd966);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
 /* BUTTON */
-.button-primary{
-background:linear-gradient(90deg,#d4af37,#ffd966);
-color:black;
-font-weight:bold;
-}
+.button-primary{background:linear-gradient(90deg,#d4af37,#ffd966);color:black;font-weight:bold;}
 
 /* SERVICES */
-.services{
-padding:100px 20px;
-}
-.card{
-background:rgba(0,0,0,.4);
-border:1px solid rgba(212,175,55,.25);
-padding:40px 25px;
-border-radius:15px;
-opacity:0;
-transform:translateY(40px);
-transition:.7s;
-}
-.card.show{
-opacity:1;
-transform:translateY(0);
-}
+.services{padding:100px 20px;}
+.card{background:rgba(0,0,0,.4);border:1px solid rgba(212,175,55,.25);padding:40px 25px;border-radius:15px;opacity:0;transform:translateY(40px);transition:.7s;}
+.card.show{opacity:1;transform:translateY(0);}
+.card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,.6);}
 
-/* BOOKING */
-.booking-card{
-background:rgba(0,0,0,.35);
-border:1px solid rgba(212,175,55,.3);
-padding:50px;
-border-radius:20px;
-}
-.booking-card input,
-.booking-card select{
-width:100%;
-padding:16px;
-border-radius:10px;
-border:1px solid #d4af37;
-background:#132a3a;
-color:white;
-}
+/* BOOKING FORM */
+.booking-card{background:rgba(0,0,0,.35);border:1px solid rgba(212,175,55,.3);padding:50px;border-radius:20px;}
+.booking-card input, .booking-card select{width:100%;padding:16px;border-radius:10px;border:1px solid #d4af37;background:#132a3a;color:white;}
 
-/* SERVICE AREA MAP */
-.service-map iframe{
-border-radius:15px;
-border:1px solid #d4af37;
-}
+/* SERVICE MAP */
+.service-map iframe{border-radius:15px;border:1px solid #d4af37;}
 
 /* DOT NAV */
-.dot-nav{
-position:fixed;
-left:20px;
-top:120px;
-display:flex;
-flex-direction:column;
-gap:16px;
-z-index:999;
-}
-.dot-nav button{
-width:14px;
-height:14px;
-border-radius:50%;
-border:2px solid #d4af37;
-background:transparent;
-cursor:pointer;
-transition:.3s;
-}
-.dot-nav button.active,
-.dot-nav button:hover{
-background:#d4af37;
-transform:scale(1.2);
-}
+.dot-nav{position:fixed;left:20px;top:120px;display:flex;flex-direction:column;gap:16px;z-index:999;}
+.dot-nav button{width:14px;height:14px;border-radius:50%;border:2px solid #d4af37;background:transparent;cursor:pointer;transition:.3s;}
+.dot-nav button.active,.dot-nav button:hover{background:#d4af37;transform:scale(1.2);}
 
 /* FOOTER */
-footer{
-background:black;
-padding:60px 20px;
-text-align:center;
-border-top:1px solid rgba(212,175,55,.25);
-}
+footer{background:black;padding:60px 20px;text-align:center;border-top:1px solid rgba(212,175,55,.25);}
 
-/* FLOATING WHATSAPP BUTTON */
-#whatsappBtn{
-position:fixed;
-bottom:30px;
-right:30px;
-z-index:1000;
-background:#25D366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-transition:transform 0.3s ease;
-cursor:pointer;
-}
-#whatsappBtn:hover{
-transform:scale(1.1);
-}
+/* WHATSAPP BUTTON */
+#whatsappBtn{position:fixed;bottom:30px;right:30px;z-index:1000;cursor:pointer;transition:transform .3s;}
+#whatsappBtn:hover{transform:scale(1.1);}
+#whatsappBtn div{background:#25D366;border-radius:50%;padding:12px;display:flex;justify-content:center;align-items:center;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+
+/* SCROLL ARROW */
+#scrollArrow{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-index:900;}
+
+/* CONTACT MODAL */
+#contactModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:10000;}
+#contactModal .modal-content{background:#111;padding:30px;border-radius:15px;display:flex;flex-direction:column;gap:20px;text-align:center;}
+#contactModal .modal-content a{color:white;text-decoration:none;font-size:1.2rem;padding:10px 20px;border:1px solid #d4af37;border-radius:8px;transition:.3s;}
+#contactModal .modal-content a:hover{background:#d4af37;color:black;}
+.closeModal{position:absolute;top:20px;right:30px;font-size:2rem;cursor:pointer;color:#d4af37;}
 </style>
 </head>
-
 <body>
+
+<!-- LOADER -->
+<div id="loader"><img src="logo.png" alt="TirePilot Logo" id="loaderLogo"></div>
+
+<!-- SCROLL ARROW -->
+<div id="scrollArrow">&#x2193;</div>
 
 <!-- DOT NAV -->
 <div class="dot-nav">
@@ -166,14 +97,23 @@ transform:scale(1.1);
 <button onclick="scrollToSection('area')" id="dot4"></button>
 </div>
 
-<!-- WHATSAPP FLOAT BUTTON -->
-<a href="https://wa.me/16479839134?text=Emergency%20Tire%20Help" target="_blank" id="whatsappBtn" title="Emergency Tire Help" class="flex justify-center items-center">
-  <div class="bg-[#25D366] rounded-full p-3 shadow-lg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="h-8 w-8">
-  </div>
+<!-- WHATSAPP -->
+<a href="https://wa.me/16479839134?text=Emergency%20Tire%20Help" target="_blank" id="whatsappBtn" title="Emergency Tire Help">
+<div><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="h-8 w-8"></div>
 </a>
 
-<!-- NAVBAR -->
+<!-- CONTACT MODAL -->
+<div id="contactModal">
+<div class="modal-content">
+<span class="closeModal">&times;</span>
+<a href="tel:+16479839134">Call</a>
+<a href="https://wa.me/16479839134?text=Hi" target="_blank">WhatsApp</a>
+<a href="sms:+16479839134">Message</a>
+<a href="mailto:services@tirepilot.ca">Email</a>
+</div>
+</div>
+
+<!-- HEADER -->
 <header class="flex justify-between items-center px-6 py-3">
 <img src="logo.png" class="h-10">
 <nav class="space-x-6 hidden md:flex">
@@ -181,7 +121,7 @@ transform:scale(1.1);
 <a href="#how" data-en="How it Works" data-fr="Comment ça marche">How it Works</a>
 <a href="#book" data-en="Book Service" data-fr="Réserver un service">Book Service</a>
 <a href="#area" data-en="Service Area" data-fr="Zone de service">Service Area</a>
-<a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+<a href="#" id="contactLink" data-en="Contact" data-fr="Contact">Contact</a>
 </nav>
 <div class="flex gap-3">
 <button id="langToggle" class="bg-gray-800 px-3 py-1 rounded">EN</button>
@@ -205,22 +145,10 @@ transform:scale(1.1);
 <section id="services" class="services">
 <h2 class="text-4xl text-center gold font-bold mb-14" data-en="Our Services" data-fr="Nos services">Our Services</h2>
 <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
-<div class="card">
-<h3 class="gold font-bold text-xl" data-en="Flat Tire Repair" data-fr="Réparation de pneu crevé">Flat Tire Repair</h3>
-<p class="text-gray-300 mt-3" data-en="Fast roadside puncture repair" data-fr="Réparation rapide de crevaison">Fast roadside puncture repair</p>
-</div>
-<div class="card">
-<h3 class="gold font-bold text-xl" data-en="Tire Installation" data-fr="Installation de pneus">Tire Installation</h3>
-<p class="text-gray-300 mt-3" data-en="Professional mounting & balancing" data-fr="Montage et équilibrage professionnel">Professional mounting & balancing</p>
-</div>
-<div class="card">
-<h3 class="gold font-bold text-xl" data-en="Seasonal Tire Change" data-fr="Changement de pneus saisonnier">Seasonal Tire Change</h3>
-<p class="text-gray-300 mt-3" data-en="Winter and summer tire swap" data-fr="Échange de pneus hiver/été">Winter and summer tire swap</p>
-</div>
-<div class="card">
-<h3 class="gold font-bold text-xl" data-en="Emergency Roadside" data-fr="Assistance routière d'urgence">Emergency Roadside</h3>
-<p class="text-gray-300 mt-3" data-en="24/7 mobile support" data-fr="Support mobile 24/7">24/7 mobile support</p>
-</div>
+<div class="card"><h3 class="gold font-bold text-xl" data-en="Flat Tire Repair" data-fr="Réparation de pneu crevé">Flat Tire Repair</h3><p class="text-gray-300 mt-3" data-en="Fast roadside puncture repair" data-fr="Réparation rapide de crevaison">Fast roadside puncture repair</p></div>
+<div class="card"><h3 class="gold font-bold text-xl" data-en="Tire Installation" data-fr="Installation de pneus">Tire Installation</h3><p class="text-gray-300 mt-3" data-en="Professional mounting & balancing" data-fr="Montage et équilibrage professionnel">Professional mounting & balancing</p></div>
+<div class="card"><h3 class="gold font-bold text-xl" data-en="Seasonal Tire Change" data-fr="Changement de pneus saisonnier">Seasonal Tire Change</h3><p class="text-gray-300 mt-3" data-en="Winter and summer tire swap" data-fr="Échange de pneus hiver/été">Winter and summer tire swap</p></div>
+<div class="card"><h3 class="gold font-bold text-xl" data-en="Emergency Roadside" data-fr="Assistance routière d'urgence">Emergency Roadside</h3><p class="text-gray-300 mt-3" data-en="24/7 mobile support" data-fr="Support mobile 24/7">24/7 mobile support</p></div>
 </div>
 </section>
 
@@ -228,26 +156,14 @@ transform:scale(1.1);
 <section id="how" class="py-20 text-center">
 <h2 class="text-4xl gold font-bold mb-12" data-en="How It Works" data-fr="Comment ça marche">How It Works</h2>
 <div class="grid md:grid-cols-4 max-w-6xl mx-auto gap-10">
-<div>
-<h3 class="text-3xl gold">1</h3>
-<p data-en="Request service" data-fr="Demander un service">Request service</p>
-</div>
-<div>
-<h3 class="text-3xl gold">2</h3>
-<p data-en="Technician comes to you" data-fr="Le technicien vient à vous">Technician comes to you</p>
-</div>
-<div>
-<h3 class="text-3xl gold">3</h3>
-<p data-en="Tire fixed or replaced" data-fr="Pneu réparé ou remplacé">Tire fixed or replaced</p>
-</div>
-<div>
-<h3 class="text-3xl gold">4</h3>
-<p data-en="Back on the road" data-fr="De retour sur la route">Back on the road</p>
-</div>
+<div><h3 class="text-3xl gold">1</h3><p data-en="Request service" data-fr="Demander un service">Request service</p></div>
+<div><h3 class="text-3xl gold">2</h3><p data-en="Technician comes to you" data-fr="Le technicien vient à vous">Technician comes to you</p></div>
+<div><h3 class="text-3xl gold">3</h3><p data-en="Tire fixed or replaced" data-fr="Pneu réparé ou remplacé">Tire fixed or replaced</p></div>
+<div><h3 class="text-3xl gold">4</h3><p data-en="Back on the road" data-fr="De retour sur la route">Back on the road</p></div>
 </div>
 </section>
 
-<!-- BOOK -->
+<!-- BOOKING -->
 <section id="book" class="py-20">
 <h2 class="text-4xl text-center gold font-bold mb-12" data-en="Request Mobile Tire Service" data-fr="Demander un service mobile de pneus">Request Mobile Tire Service</h2>
 <div class="max-w-2xl mx-auto booking-card">
@@ -257,7 +173,7 @@ transform:scale(1.1);
 <input type="text" name="Name" placeholder="Your Name" data-en-placeholder="Your Name" data-fr-placeholder="Votre nom" required>
 <input type="tel" name="Phone" placeholder="Phone Number" data-en-placeholder="Phone Number" data-fr-placeholder="Numéro de téléphone" required>
 <input type="text" name="Location" placeholder="Location" data-en-placeholder="Location" data-fr-placeholder="Emplacement" required>
-<input type="text" name="Vehicle" placeholder="Vehicle Model and Year" data-en-placeholder="Vehicle Model and Year" data-fr-placeholder="Modèle et année du véhicule" required>
+<input type="text" name="Vehicle" placeholder="Vehicle Make, Model and Year" data-en-placeholder="Vehicle Model and Year" data-fr-placeholder="Modèle et année du véhicule" required>
 <select name="Service">
 <option data-en="Off-Rim Tire Change" data-fr="Changement de pneu hors jante">Off-Rim Tire Change</option>
 <option data-en="Rim Tire Change" data-fr="Changement de pneu sur jante">Rim Tire Change</option>
@@ -278,14 +194,7 @@ transform:scale(1.1);
 <iframe src="https://www.google.com/maps?q=Scarborough&output=embed" width="100%" height="450" allowfullscreen="" loading="lazy"></iframe>
 </div>
 <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-10 text-gray-300">
-<p>Scarborough</p>
-<p>Toronto</p>
-<p>Ajax</p>
-<p>Pickering</p>
-<p>Markham</p>
-<p>Vaughan</p>
-<p>North York</p>
-<p>Oshawa</p>
+<p>Scarborough</p><p>Toronto</p><p>Ajax</p><p>Pickering</p><p>Markham</p><p>Vaughan</p><p>North York</p><p>Oshawa</p>
 </div>
 </section>
 
@@ -298,64 +207,53 @@ transform:scale(1.1);
 </footer>
 
 <script>
-/* HERO PARALLAX */
-window.addEventListener("scroll",function(){
-let hero=document.querySelector(".hero")
-let offset=window.pageYOffset
-hero.style.backgroundPosition="center "+offset*0.4+"px"
-})
+// Safe loader
+window.addEventListener("load", ()=>{
+  setTimeout(()=>{document.getElementById("loader").style.display="none"},500);
+});
 
-/* CARD ANIMATION */
-const cards=document.querySelectorAll(".card")
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show")
-}
-})
-})
-cards.forEach(card=>observer.observe(card))
+// HERO PARALLAX
+window.addEventListener("scroll",()=>{document.querySelector(".hero").style.backgroundPosition="center "+window.scrollY*0.4+"px";});
 
-/* DOT NAV SCROLL */
-function scrollToSection(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"})
-}
+// CARD ANIMATION
+const cards=document.querySelectorAll(".card");
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("show")}})});
+cards.forEach(card=>observer.observe(card));
 
-/* DOT ACTIVE WHILE SCROLLING */
-const sections=document.querySelectorAll("section")
+// DOT NAV
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:"smooth"})}
+const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
-let current=""
-sections.forEach(section=>{
-const sectionTop=section.offsetTop-200
-if(pageYOffset>=sectionTop){
-current=section.getAttribute("id")
-}
-})
-document.querySelectorAll(".dot-nav button").forEach(btn=>{btn.classList.remove("active")})
-if(current==="services") document.getElementById("dot1").classList.add("active")
-if(current==="how") document.getElementById("dot2").classList.add("active")
-if(current==="book") document.getElementById("dot3").classList.add("active")
-if(current==="area") document.getElementById("dot4").classList.add("active")
-})
+  let current="";
+  sections.forEach(sec=>{if(pageYOffset>=sec.offsetTop-200){current=sec.getAttribute("id")}});
+  document.querySelectorAll(".dot-nav button").forEach(btn=>btn.classList.remove("active"));
+  if(current==="services") document.getElementById("dot1").classList.add("active");
+  if(current==="how") document.getElementById("dot2").classList.add("active");
+  if(current==="book") document.getElementById("dot3").classList.add("active");
+  if(current==="area") document.getElementById("dot4").classList.add("active");
+});
 
-/* EN/FR TOGGLE */
+// SCROLL ARROW
+const arrow=document.getElementById("scrollArrow");
+window.addEventListener("scroll",()=>{arrow.style.opacity=Math.max(0,0.4-(window.scrollY/150))});
+arrow.addEventListener("click",()=>{window.scrollBy({top:100,behavior:"smooth"})});
+
+// EN/FR TOGGLE
 const langBtn=document.getElementById("langToggle");
 let lang="en";
-
 langBtn.addEventListener("click",()=>{
-lang=lang==="en"?"fr":"en";
-langBtn.textContent=lang.toUpperCase();
-document.querySelectorAll("[data-en]").forEach(el=>{
-if(el.placeholder){
-el.placeholder=el.getAttribute(`data-${lang}-placeholder`) || el.placeholder;
-}else{
-el.textContent=el.getAttribute(`data-${lang}`) || el.textContent;
-}
+  lang=lang==="en"?"fr":"en";
+  langBtn.textContent=lang.toUpperCase();
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    if(el.placeholder){el.placeholder=el.getAttribute(`data-${lang}-placeholder`)||el.placeholder}else{el.textContent=el.getAttribute(`data-${lang}`)||el.textContent}});
+  document.querySelectorAll("select option").forEach(opt=>{opt.textContent=opt.getAttribute(`data-${lang}`)||opt.textContent});
 });
-document.querySelectorAll("select option").forEach(opt=>{
-opt.textContent=opt.getAttribute(`data-${lang}`) || opt.textContent;
-});
-});
+
+// CONTACT MODAL
+const contactModal=document.getElementById("contactModal");
+document.getElementById("contactLink").addEventListener("click",()=>{contactModal.style.display="flex"});
+document.querySelector(".closeModal").addEventListener("click",()=>{contactModal.style.display="none"});
+window.addEventListener("click",(e)=>{if(e.target==contactModal){contactModal.style.display="none"}});
 </script>
 
 </body>
