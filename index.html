@@ -9,7 +9,8 @@
 
 <script src="https://cdn.tailwindcss.com"></script>
 
-<meta name="description" content="24/7 Mobile Tire Service in Toronto">
+<meta name="description" content="24/7 Mobile Tire Service in Toronto. Flat tire repair, seasonal tire change, wheel balancing and roadside assistance.">
+<meta name="keywords" content="mobile tire service Toronto, roadside tire repair, flat tire repair Toronto">
 
 <link rel="icon" href="logo.png">
 
@@ -23,7 +24,11 @@ scroll-behavior:smooth;
 margin:0;
 }
 
+/* GOLD */
+
 .gold{color:#d4af37;}
+
+/* NAVBAR */
 
 header{
 background:black;
@@ -52,6 +57,8 @@ background:linear-gradient(90deg,#d4af37,#ffd966);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
+
+/* BUTTON */
 
 .button-primary{
 background:linear-gradient(90deg,#d4af37,#ffd966);
@@ -118,11 +125,13 @@ border-radius:50%;
 border:2px solid #d4af37;
 background:transparent;
 cursor:pointer;
+transition:.3s;
 }
 
 .dot-nav button.active,
 .dot-nav button:hover{
 background:#d4af37;
+transform:scale(1.2);
 }
 
 /* FOOTER */
@@ -139,13 +148,19 @@ border-top:1px solid rgba(212,175,55,.25);
 
 <body>
 
+
 <!-- DOT NAV -->
 
 <div class="dot-nav">
+
 <button onclick="scrollToSection('services')" id="dot1"></button>
+
 <button onclick="scrollToSection('how')" id="dot2"></button>
+
 <button onclick="scrollToSection('book')" id="dot3"></button>
+
 </div>
+
 
 
 <!-- NAVBAR -->
@@ -156,13 +171,10 @@ border-top:1px solid rgba(212,175,55,.25);
 
 <nav class="space-x-6 hidden md:flex">
 
-<a href="#services" data-en="Services" data-fr="Services">Services</a>
-
-<a href="#how" data-en="How it Works" data-fr="Comment ça Marche">How it Works</a>
-
-<a href="#book" data-en="Book Service" data-fr="Réserver">Book Service</a>
-
-<a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+<a href="#services">Services</a>
+<a href="#how">How it Works</a>
+<a href="#book">Book Service</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
@@ -170,16 +182,12 @@ border-top:1px solid rgba(212,175,55,.25);
 
 <button id="langToggle" class="bg-gray-800 px-3 py-1 rounded">EN</button>
 
-<a href="tel:6479839134"
-class="button-primary px-4 py-2 rounded"
-data-en="Call Now"
-data-fr="Appeler">
-Call Now
-</a>
+<a href="tel:6479839134" class="button-primary px-4 py-2 rounded">Call Now</a>
 
 </div>
 
 </header>
+
 
 
 <!-- HERO -->
@@ -188,31 +196,19 @@ Call Now
 
 <div>
 
-<h1 data-en="Tire Pilot" data-fr="Pilote de Pneus">
-Tire Pilot
-</h1>
+<h1>Tire Pilot</h1>
 
-<p class="text-xl mt-2 text-gray-300"
-data-en="24/7 Mobile Tire Service"
-data-fr="Service Mobile de Pneus 24/7">
-
+<p class="text-xl mt-2 text-gray-300">
 24/7 Mobile Tire Service
-
 </p>
 
 <div class="mt-8 space-x-4">
 
-<a href="#book"
-class="button-primary px-6 py-3 rounded"
-data-en="Book Service"
-data-fr="Réserver">
+<a href="#book" class="button-primary px-6 py-3 rounded">
 Book Service
 </a>
 
-<a href="tel:6479839134"
-class="border border-yellow-500 px-6 py-3 rounded"
-data-en="Call Now"
-data-fr="Appeler">
+<a href="tel:6479839134" class="border border-yellow-500 px-6 py-3 rounded">
 Call Now
 </a>
 
@@ -223,16 +219,13 @@ Call Now
 </section>
 
 
+
 <!-- SERVICES -->
 
 <section id="services" class="services">
 
-<h2 class="text-4xl text-center gold font-bold mb-14"
-data-en="Our Services"
-data-fr="Nos Services">
-
+<h2 class="text-4xl text-center gold font-bold mb-14">
 Our Services
-
 </h2>
 
 <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
@@ -262,38 +255,35 @@ Our Services
 </section>
 
 
+
 <!-- HOW IT WORKS -->
 
 <section id="how" class="py-20 text-center">
 
-<h2 class="text-4xl gold font-bold mb-12"
-data-en="How It Works"
-data-fr="Comment ça Marche">
-
+<h2 class="text-4xl gold font-bold mb-12">
 How It Works
-
 </h2>
 
 <div class="grid md:grid-cols-4 max-w-6xl mx-auto gap-10">
 
 <div>
 <h3 class="text-3xl gold">1</h3>
-<p data-en="Request service" data-fr="Demander le service">Request service</p>
+<p>Request service</p>
 </div>
 
 <div>
 <h3 class="text-3xl gold">2</h3>
-<p data-en="Technician comes to you" data-fr="Technicien arrive">Technician comes to you</p>
+<p>Technician comes to you</p>
 </div>
 
 <div>
 <h3 class="text-3xl gold">3</h3>
-<p data-en="Tire fixed or replaced" data-fr="Pneu réparé">Tire fixed or replaced</p>
+<p>Tire fixed or replaced</p>
 </div>
 
 <div>
 <h3 class="text-3xl gold">4</h3>
-<p data-en="Back on the road" data-fr="De retour sur la route">Back on the road</p>
+<p>Back on the road</p>
 </div>
 
 </div>
@@ -301,16 +291,13 @@ How It Works
 </section>
 
 
-<!-- BOOK SERVICE -->
+
+<!-- BOOK -->
 
 <section id="book" class="py-20">
 
-<h2 class="text-4xl text-center gold font-bold mb-12"
-data-en="Request Mobile Tire Service"
-data-fr="Demander un Service">
-
+<h2 class="text-4xl text-center gold font-bold mb-12">
 Request Mobile Tire Service
-
 </h2>
 
 <div class="max-w-2xl mx-auto booking-card">
@@ -318,6 +305,7 @@ Request Mobile Tire Service
 <form action="https://formsubmit.co/avinashanicanada@gmail.com" method="POST" class="space-y-6">
 
 <input type="hidden" name="_subject" value="New TirePilot Booking">
+
 <input type="hidden" name="_captcha" value="false">
 
 <input type="text" name="Name" placeholder="Your Name" required>
@@ -328,38 +316,18 @@ Request Mobile Tire Service
 
 <input type="text" name="Vehicle" placeholder="Vehicle Model and Year" required>
 
-<select name="Service Needed" required>
+<select name="Service">
 
-<option data-en="Select Service" data-fr="Sélectionnez le Service">Select Service</option>
-
-<option data-en="Off-Rim Tire Change" data-fr="Changement de pneus hors jante">
-Off-Rim Tire Change
-</option>
-
-<option data-en="Rim Tire Change" data-fr="Changement de pneus sur jante">
-Rim Tire Change
-</option>
-
-<option data-en="Flat Tire Repair" data-fr="Réparation de crevaison">
-Flat Tire Repair
-</option>
-
-<option data-en="Wheel Balancing" data-fr="Équilibrage des roues">
-Wheel Balancing
-</option>
-
-<option data-en="Tire Rotation" data-fr="Rotation des pneus">
-Tire Rotation
-</option>
+<option>Off-Rim Tire Change</option>
+<option>Rim Tire Change</option>
+<option>Flat Tire Repair</option>
+<option>Wheel Balancing</option>
+<option>Tire Rotation</option>
 
 </select>
 
-<button class="button-primary w-full py-4 rounded"
-data-en="Request Service"
-data-fr="Demander le Service">
-
+<button class="button-primary w-full py-4 rounded">
 Request Service
-
 </button>
 
 </form>
@@ -367,6 +335,7 @@ Request Service
 </div>
 
 </section>
+
 
 
 <!-- FOOTER -->
@@ -379,20 +348,58 @@ Request Service
 
 <p class="mt-2">Phone: +1 647-983-9134</p>
 
-<p class="text-gray-500 mt-8">© 2026 TirePilot | All Rights Reserved</p>
+<p class="text-gray-500 mt-8">
+© 2026 TirePilot | All Rights Reserved
+</p>
 
 </footer>
 
 
+
 <script>
 
-/* SCROLL TO SECTION */
+/* HERO PARALLAX */
+
+window.addEventListener("scroll",function(){
+
+let hero=document.querySelector(".hero")
+let offset=window.pageYOffset
+
+hero.style.backgroundPosition="center "+offset*0.4+"px"
+
+})
+
+
+
+/* CARD ANIMATION */
+
+const cards=document.querySelectorAll(".card")
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+cards.forEach(card=>observer.observe(card))
+
+
+
+/* DOT NAV SCROLL */
 
 function scrollToSection(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"})
+
+document.getElementById(id).scrollIntoView({
+behavior:"smooth"
+})
+
 }
 
-/* DOT ACTIVE */
+
+
+/* DOT ACTIVE WHILE SCROLLING */
 
 const sections=document.querySelectorAll("section")
 
@@ -401,11 +408,13 @@ window.addEventListener("scroll",()=>{
 let current=""
 
 sections.forEach(section=>{
+
 const sectionTop=section.offsetTop-200
 
 if(pageYOffset>=sectionTop){
 current=section.getAttribute("id")
 }
+
 })
 
 document.querySelectorAll(".dot-nav button").forEach(btn=>{
@@ -417,22 +426,6 @@ if(current==="how") document.getElementById("dot2").classList.add("active")
 if(current==="book") document.getElementById("dot3").classList.add("active")
 
 })
-
-/* LANGUAGE SWITCH */
-
-let lang="en"
-
-document.getElementById("langToggle").onclick=function(){
-
-lang=lang==="en"?"fr":"en"
-
-this.innerText=lang.toUpperCase()
-
-document.querySelectorAll("[data-en]").forEach(el=>{
-el.textContent=el.getAttribute("data-"+lang)
-})
-
-}
 
 </script>
 
