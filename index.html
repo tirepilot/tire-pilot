@@ -384,7 +384,16 @@ window.addEventListener("click",(e)=>{if(e.target==contactModal){contactModal.st
 document.getElementById("payOnlineBtn").addEventListener("click", function(){
 
 const form = document.getElementById("bookingForm");
+
+// validate form first
+if (!form.checkValidity()) {
+form.reportValidity();
+return;
+}
+
+// change booking type
 document.getElementById("bookingType").value = "Paid Online";
+
 const service = document.querySelector('select[name="Service"]').value;
 
 let paymentLink = "";
@@ -413,23 +422,15 @@ if(service === "Inspection"){
 paymentLink = "https://buy.stripe.com/9B600beHN43K4jDaFS8Vi05";
 }
 
-if(paymentLink !== ""){
-
-// submit form silently
-fetch(form.action, {
-method: "POST",
-body: new FormData(form)
-}).then(() => {
-
-// redirect to stripe after form submission
+// submit form and then open stripe
+fetch(form.action,{
+method:"POST",
+body:new FormData(form)
+}).then(()=>{
 window.open(paymentLink,"_blank");
+});
 
 });
 
-}
-
-});
-
-</script>
-</body>
+</script></body>
 </html>
