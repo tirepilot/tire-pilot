@@ -188,7 +188,7 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 
 <select name="Service">
 <option data-en="Off-Rim Tire Change" data-fr="Changement de pneu hors jante">Off-Rim Tire Change</option>
-<option data-en="Rim Tire Change" data-fr="Changement de pneu sur jante">Rim Tire Change</option>
+<option data-en="On-Rim Tire Change" data-fr="Changement de pneu sur jante">On-Rim Tire Change</option>
 <option data-en="Flat Tire Repair" data-fr="Réparation de pneu crevé">Flat Tire Repair</option>
 <option data-en="Wheel Balancing" data-fr="Équilibrage des roues">Wheel Balancing</option>
 <option data-en="Tire Rotation" data-fr="Rotation des pneus">Tire Rotation</option>
@@ -229,7 +229,24 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
   // EN/FR toggle updates file button text
   langBtn.addEventListener("click", updateCustomFileText);
 </script>
-<button class="button-primary w-full py-4 rounded" data-en="Request Service" data-fr="Demander le service">Request Service</button>
+<div class="flex flex-col gap-4">
+
+<button type="submit" class="button-primary w-full py-4 rounded"
+data-en="Request Service (Pay Later)"
+data-fr="Demander le service (payer plus tard)">
+Request Service (Pay Later)
+</button>
+
+<button type="button" id="payOnlineBtn"
+class="w-full py-4 rounded border border-yellow-500 hover:bg-yellow-500 hover:text-black transition">
+
+<span data-en="Book & Pay Online" data-fr="Réserver et payer en ligne">
+Book & Pay Online
+</span>
+
+</button>
+
+</div>
 </form>
 <div id="successMessage" class="hidden text-center mt-6 text-green-400 font-bold">
 Request Sent Successfully. Our technician will contact you shortly.
@@ -358,6 +375,42 @@ const contactModal=document.getElementById("contactModal");
 document.getElementById("contactLink").addEventListener("click",()=>{contactModal.style.display="flex"});
 document.querySelector(".closeModal").addEventListener("click",()=>{contactModal.style.display="none"});
 window.addEventListener("click",(e)=>{if(e.target==contactModal){contactModal.style.display="none"}});
+</script>
+
+<script>
+
+document.getElementById("payOnlineBtn").addEventListener("click", function(){
+
+const service = document.querySelector('select[name="Service"]').value;
+
+let paymentLink = "";
+
+if(service === "On-Rim Tire Change"){
+paymentLink = "https://buy.stripe.com/00waEPgPVfMs2bv8xK8Vi00";
+}
+
+if(service === "Off-Rim Tire Change"){
+paymentLink = "https://buy.stripe.com/7sYcMXbvBgQw8zT6pC8Vi01";
+}
+
+if(service === "Flat Tire Repair"){
+paymentLink = "https://buy.stripe.com/bJebITeHNdEk03n7tG8Vi02";
+}
+
+if(service === "Wheel Balancing"){
+paymentLink = "https://buy.stripe.com/fZu7sD57d43K5nH9BO8Vi03";
+}
+
+if(service === "Tire Rotation"){
+paymentLink = "https://buy.stripe.com/eVqaEP9nt2ZG7vP3dq8Vi04";
+}
+
+if(paymentLink !== ""){
+window.open(paymentLink,"_blank");
+}
+
+});
+
 </script>
 
 </body>
