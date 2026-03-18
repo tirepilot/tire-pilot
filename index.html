@@ -185,64 +185,76 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 </section>
 
 <!-- BOOKING -->
+<!-- BOOKING -->
 <section id="book" class="py-20">
 <h2 class="text-4xl text-center gold font-bold mb-12" data-en="Request Mobile Tire Service" data-fr="Demander un service mobile de pneus">Request Mobile Tire Service</h2>
+
 <div class="max-w-2xl mx-auto booking-card">
+
 <form id="bookingForm" action="https://formsubmit.co/avinashanicanada@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6">
+
 <input type="hidden" name="Booking Type" id="bookingType" value="Pay Later">
+<input type="hidden" name="Priority Service" id="priorityValue" value="No">
 <input type="hidden" name="_subject" value="New TirePilot Booking">
 <input type="hidden" name="_captcha" value="false">
+
 <input type="text" name="Name" placeholder="Your Name" data-en-placeholder="Your Name" data-fr-placeholder="Votre nom" required>
 <input type="tel" name="Phone" placeholder="Phone Number" data-en-placeholder="Phone Number" data-fr-placeholder="Numéro de téléphone" required>
 <input type="text" name="Location" placeholder="Location" data-en-placeholder="Location" data-fr-placeholder="Emplacement" required>
 <input type="text" name="Vehicle" placeholder="Vehicle Make, Model and Year" data-en-placeholder="Vehicle Model and Year" data-fr-placeholder="Modèle et année du véhicule" required>
 
-
-
 <select name="Service">
-<option data-en="Off-Rim Tire Change" data-fr="Changement de pneu hors jante">Off-Rim Tire Change</option>
-<option data-en="On-Rim Tire Change" data-fr="Changement de pneu sur jante">On-Rim Tire Change</option>
-<option data-en="Flat Tire Repair" data-fr="Réparation de pneu crevé">Flat Tire Repair</option>
+<option data-en="Off-Rim Tire Change" data-fr="Changement hors jante">Off-Rim Tire Change</option>
+<option data-en="On-Rim Tire Change" data-fr="Changement sur jante">On-Rim Tire Change</option>
+<option data-en="Flat Tire Repair" data-fr="Réparation pneu crevé">Flat Tire Repair</option>
 <option data-en="Wheel Balancing" data-fr="Équilibrage des roues">Wheel Balancing</option>
 <option data-en="Tire Rotation" data-fr="Rotation des pneus">Tire Rotation</option>
 <option data-en="Inspection" data-fr="Inspection">Inspection</option>
 </select>
 
-<div class="relative w-full">
-  <button type="button" id="customFileBtn" class="w-full p-4 rounded-lg border border-yellow-600 bg-[#132a3a] text-white text-left">
-    <span data-en="Upload a photo of your tire (Optional)" data-fr="Téléchargez une photo de votre pneu">Upload a photo of your tire (Optional)</span>
-  </button>
-  <input 
-    type="file" 
-    name="Photo" 
-    accept="image/*" 
-    id="realFileInput" 
-    class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" 
-  >
-  
+<!-- PRIORITY TOGGLE -->
+<div class="flex items-center justify-between border border-yellow-600 p-4 rounded-lg">
+  <div>
+    <p class="font-bold text-white" 
+       data-en="Priority Service (+$10 CAD)" 
+       data-fr="Service prioritaire (+10$ CAD)">
+       Priority Service (+$10 CAD)
+    </p>
+    <p class="text-sm text-gray-400" 
+       data-en="Faster response & top priority technician" 
+       data-fr="Réponse plus rapide et priorité élevée">
+       Faster response & top priority technician
+    </p>
+  </div>
+
+  <div id="priorityToggle" class="w-14 h-8 flex items-center bg-red-600 rounded-full p-1 cursor-pointer transition">
+    <div id="toggleCircle" class="bg-white w-6 h-6 rounded-full shadow-md transform transition"></div>
+  </div>
 </div>
 
-<script>
-  const realFileInput = document.getElementById("realFileInput");
-  const customFileBtn = document.getElementById("customFileBtn");
+<!-- FILE UPLOAD -->
+<div class="relative w-full space-y-3">
 
-  // Function to set button text based on language and file selection
-  const updateCustomFileText = () => {
-    if (realFileInput.files.length > 0) {
-      customFileBtn.querySelector("span").textContent = realFileInput.files[0].name;
-    } else {
-      customFileBtn.querySelector("span").textContent = lang === "fr" ? 
-        "Téléchargez une photo de votre pneu (Facultatif)" : 
-        "Upload a photo of your tire (Optional)";
-    }
-  };
+<button type="button" id="customFileBtn"
+class="w-full p-4 rounded-lg border border-yellow-600 bg-[#132a3a] text-white text-left">
+<span id="fileText"
+data-en="Upload a photo of your tire (Optional)"
+data-fr="Téléchargez une photo (facultatif)">
+Upload a photo of your tire (Optional)
+</span>
+</button>
 
-  // When user selects a file
-  realFileInput.addEventListener("change", updateCustomFileText);
+<input type="file" name="Photo" accept="image/*"
+id="realFileInput"
+class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer">
 
-  // EN/FR toggle updates file button text
-  langBtn.addEventListener("click", updateCustomFileText);
-</script>
+<!-- IMAGE PREVIEW -->
+<img id="imagePreview"
+class="hidden w-full max-h-48 object-cover rounded-lg border border-yellow-600" />
+
+</div>
+
+<!-- BUTTONS -->
 <div class="flex flex-col gap-4">
 
 <button type="submit" class="button-primary w-full py-4 rounded"
@@ -253,20 +265,116 @@ Request Service (Pay Later)
 
 <button type="button" id="payOnlineBtn"
 class="w-full py-4 rounded border border-yellow-500 hover:bg-yellow-500 hover:text-black transition">
-
 <span data-en="Book & Pay Online" data-fr="Réserver et payer en ligne">
 Book & Pay Online
 </span>
-
 </button>
 
 </div>
+
 </form>
-<div id="successMessage" class="hidden text-center mt-6 text-green-400 font-bold">
-Request Sent Successfully. Our technician will contact you shortly.
+
 </div>
 </section>
 
+<!-- PRIORITY + PAYMENT SCRIPT -->
+<script>
+
+// PRIORITY TOGGLE
+let priorityOn = false;
+
+const toggle = document.getElementById("priorityToggle");
+const circle = document.getElementById("toggleCircle");
+const priorityInput = document.getElementById("priorityValue");
+
+toggle.addEventListener("click", () => {
+  priorityOn = !priorityOn;
+
+  if(priorityOn){
+    toggle.classList.remove("bg-red-600");
+    toggle.classList.add("bg-green-500");
+    circle.style.transform = "translateX(24px)";
+    priorityInput.value = "Yes";
+  } else {
+    toggle.classList.remove("bg-green-500");
+    toggle.classList.add("bg-red-600");
+    circle.style.transform = "translateX(0)";
+    priorityInput.value = "No";
+  }
+});
+
+// PAYMENT BUTTON
+document.getElementById("payOnlineBtn").addEventListener("click", function(){
+
+const form = document.getElementById("bookingForm");
+
+if (!form.checkValidity()) {
+form.reportValidity();
+return;
+}
+
+document.getElementById("bookingType").value = priorityOn ? "Paid Online (Priority)" : "Paid Online";
+
+const service = document.querySelector('select[name="Service"]').value;
+let paymentLink = "";
+
+// PRIORITY LINKS
+if(priorityOn){
+
+if(service === "On-Rim Tire Change"){
+paymentLink = "https://buy.stripe.com/28EaEP57deIo5nH8xK8Vi06";
+}
+if(service === "Off-Rim Tire Change"){
+paymentLink = "https://buy.stripe.com/aFadR14390RydUdg0c8Vi07";
+}
+if(service === "Flat Tire Repair"){
+paymentLink = "https://buy.stripe.com/6oU5kv9ntas8aI1g0c8Vi09";
+}
+if(service === "Wheel Balancing"){
+paymentLink = "https://buy.stripe.com/bJeaEPczF1VC9DXbJW8Vi08";
+}
+if(service === "Tire Rotation"){
+paymentLink = "https://buy.stripe.com/28EfZ94396bS4jD6pC8Vi0b";
+}
+if(service === "Inspection"){
+paymentLink = "https://buy.stripe.com/28EdR17fl57OcQ98xK8Vi0c";
+}
+
+} else {
+
+// NORMAL LINKS
+if(service === "On-Rim Tire Change"){
+paymentLink = "https://buy.stripe.com/00waEPgPVfMs2bv8xK8Vi00";
+}
+if(service === "Off-Rim Tire Change"){
+paymentLink = "https://buy.stripe.com/7sYcMXbvBgQw8zT6pC8Vi01";
+}
+if(service === "Flat Tire Repair"){
+paymentLink = "https://buy.stripe.com/bJebITeHNdEk03n7tG8Vi02";
+}
+if(service === "Wheel Balancing"){
+paymentLink = "https://buy.stripe.com/fZu7sD57d43K5nH9BO8Vi03";
+}
+if(service === "Tire Rotation"){
+paymentLink = "https://buy.stripe.com/eVqaEP9nt2ZG7vP3dq8Vi04";
+}
+if(service === "Inspection"){
+paymentLink = "https://buy.stripe.com/9B600beHN43K4jDaFS8Vi05";
+}
+
+}
+
+// SEND FORM THEN OPEN PAYMENT
+fetch(form.action,{
+method:"POST",
+body:new FormData(form)
+}).then(()=>{
+window.open(paymentLink,"_blank");
+});
+
+});
+
+</script>
 <!-- SERVICE AREA -->
 <section id="area" class="py-20 text-center">
   <h2 class="text-4xl gold font-bold mb-12" data-en="Service Area" data-fr="Zone de service">Service Area</h2>
@@ -389,58 +497,39 @@ const contactModal=document.getElementById("contactModal");
 document.getElementById("contactLink").addEventListener("click",()=>{contactModal.style.display="flex"});
 document.querySelector(".closeModal").addEventListener("click",()=>{contactModal.style.display="none"});
 window.addEventListener("click",(e)=>{if(e.target==contactModal){contactModal.style.display="none"}});
-</script>
 
-<script>
+const fileInput = document.getElementById("realFileInput");
+const customBtn = document.getElementById("customFileBtn");
 
-document.getElementById("payOnlineBtn").addEventListener("click", function(){
-
-const form = document.getElementById("bookingForm");
-
-// validate form first
-if (!form.checkValidity()) {
-form.reportValidity();
-return;
-}
-
-// change booking type
-document.getElementById("bookingType").value = "Paid Online";
-
-const service = document.querySelector('select[name="Service"]').value;
-
-let paymentLink = "";
-
-if(service === "On-Rim Tire Change"){
-paymentLink = "https://buy.stripe.com/00waEPgPVfMs2bv8xK8Vi00";
-}
-
-if(service === "Off-Rim Tire Change"){
-paymentLink = "https://buy.stripe.com/7sYcMXbvBgQw8zT6pC8Vi01";
-}
-
-if(service === "Flat Tire Repair"){
-paymentLink = "https://buy.stripe.com/bJebITeHNdEk03n7tG8Vi02";
-}
-
-if(service === "Wheel Balancing"){
-paymentLink = "https://buy.stripe.com/fZu7sD57d43K5nH9BO8Vi03";
-}
-
-if(service === "Tire Rotation"){
-paymentLink = "https://buy.stripe.com/eVqaEP9nt2ZG7vP3dq8Vi04";
-}
-
-if(service === "Inspection"){
-paymentLink = "https://buy.stripe.com/9B600beHN43K4jDaFS8Vi05";
-}
-
-// submit form and then open stripe
-fetch(form.action,{
-method:"POST",
-body:new FormData(form)
-}).then(()=>{
-window.open(paymentLink,"_blank");
+customBtn.addEventListener("click", () => {
+  fileInput.click();
 });
+
+
+const fileText = document.getElementById("fileText");
+const preview = document.getElementById("imagePreview");
+
+fileInput.addEventListener("change", function () {
+
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      preview.src = e.target.result;
+      preview.classList.remove("hidden");
+    };
+
+    reader.readAsDataURL(file);
+
+    // Change text
+    if(lang === "fr"){
+  fileText.textContent = "Photo téléchargée ✅";
+} else {
+  fileText.textContent = "Photo Uploaded ✅";
+}
+  }
 
 });
 
