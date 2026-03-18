@@ -113,9 +113,10 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 <!-- DOT NAV -->
 <div class="dot-nav">
 <button onclick="scrollToSection('services')" id="dot1"></button>
-<button onclick="scrollToSection('how')" id="dot2"></button>
-<button onclick="scrollToSection('book')" id="dot3"></button>
-<button onclick="scrollToSection('area')" id="dot4"></button>
+  <button onclick="scrollToSection('how')" id="dot2"></button>
+  <button onclick="scrollToSection('prices')" id="dot3"></button> <!-- Prices -->
+  <button onclick="scrollToSection('book')" id="dot4"></button>
+  
 </div>
 
 <!-- WHATSAPP -->
@@ -136,18 +137,18 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 
 <!-- HEADER -->
 <header class="flex justify-between items-center px-6 py-3">
-<img src="logo.png" class="h-10">
-<nav class="space-x-6 hidden md:flex">
-<a href="#services" data-en="Services" data-fr="Services">Services</a>
-<a href="#how" data-en="How it Works" data-fr="Comment ça marche">How it Works</a>
-<a href="#book" data-en="Book Service" data-fr="Réserver un service">Book Service</a>
-<a href="#area" data-en="Service Area" data-fr="Zone de service">Service Area</a>
-<a href="#" id="contactLink" data-en="Contact" data-fr="Contact">Contact</a>
-</nav>
-<div class="flex gap-3">
-<button id="langToggle" class="bg-gray-800 px-3 py-1 rounded">EN</button>
-<a href="tel:6479839134" class="button-primary px-4 py-2 rounded" data-en="Call Now" data-fr="Appelez maintenant">Call Now</a>
-</div>
+  <img src="logo.png" class="h-10">
+  <nav class="space-x-6 hidden md:flex">
+    <a href="#services" data-en="Our Services" data-fr="Nos services">Our Services</a>
+    <a href="#how" data-en="How it Works" data-fr="Comment ça marche">How it Works</a>
+    <a href="#prices" data-en="Our Prices" data-fr="Nos tarifs">Our Prices</a>
+    <a href="#book" data-en="Book Service" data-fr="Réserver un service">Book Service</a>
+    <a href="#area" data-en="Service Area" data-fr="Zone de service">Service Area</a>
+  </nav>
+  <div class="flex gap-3">
+    <button id="langToggle" class="bg-gray-800 px-3 py-1 rounded">EN</button>
+    <a href="tel:6479839134" class="button-primary px-4 py-2 rounded" data-en="Call Now" data-fr="Appelez maintenant">Call Now</a>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -182,6 +183,29 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 <div><h3 class="text-3xl gold">3</h3><p data-en="Tire fixed or replaced" data-fr="Pneu réparé ou remplacé">Tire fixed or replaced</p></div>
 <div><h3 class="text-3xl gold">4</h3><p data-en="Back on the road" data-fr="De retour sur la route">Back on the road</p></div>
 </div>
+</section>
+
+<!-- OUR PRICES -->
+<section id="prices" class="services">
+  <h2 class="text-4xl text-center gold font-bold mb-14" data-en="Our Prices" data-fr="Nos prix">Our Prices</h2>
+  <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-6">
+    <div class="card">
+      <h3 class="gold font-bold text-lg" data-en="Wheel Balancing" data-fr="Équilibrage des roues">Wheel Balancing</h3>
+      <p class="text-gray-300 mt-2" data-en="$50" data-fr="50$">$50</p>
+    </div>
+    <div class="card">
+      <h3 class="gold font-bold text-lg" data-en="Flat Tire Repair (Small)" data-fr="Réparation de pneu crevé (petit)">Flat Tire Repair (Small)</h3>
+      <p class="text-gray-300 mt-2" data-en="$50" data-fr="50$">$50</p>
+    </div>
+    <div class="card">
+      <h3 class="gold font-bold text-lg" data-en="Off-Rim Tire Change" data-fr="Changement hors jante">Off-Rim Tire Change</h3>
+      <p class="text-gray-300 mt-2" data-en="$80" data-fr="80$">$80</p>
+    </div>
+    <div class="card">
+      <h3 class="gold font-bold text-lg" data-en="On-Rim Tire Change" data-fr="Changement sur jante">On-Rim Tire Change</h3>
+      <p class="text-gray-300 mt-2" data-en="$50" data-fr="50$">$50</p>
+    </div>
+  </div>
 </section>
 
 <!-- BOOKING -->
