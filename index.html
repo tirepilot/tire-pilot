@@ -74,6 +74,17 @@ background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url(hero.jpg);backgrou
 .booking-card{background:rgba(0,0,0,.35);border:1px solid rgba(212,175,55,.3);padding:50px;border-radius:20px;}
 .booking-card input, .booking-card select{width:100%;padding:16px;border-radius:10px;border:1px solid #d4af37;background:#132a3a;color:white;}
 
+/* MAP HEIGHT */
+#map { 
+  height: 400px; 
+}
+
+@media(max-width:768px){
+  #map{
+    height: 300px;
+  }
+}
+
 /* SERVICE MAP */
 .service-map iframe{border-radius:15px;border:1px solid #d4af37;}
 
@@ -116,6 +127,8 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
   <button onclick="scrollToSection('how')" id="dot2"></button>
   <button onclick="scrollToSection('prices')" id="dot3"></button> <!-- Prices -->
   <button onclick="scrollToSection('book')" id="dot4"></button>
+<button onclick="scrollToSection('area')" id="dot5"></button>
+<button onclick="scrollToSection('faq')" id="dot6"></button>
   
 </div>
 
@@ -535,12 +548,19 @@ window.addEventListener("scroll",()=>{
   if(current==="how") document.getElementById("dot2").classList.add("active");
   if(current==="book") document.getElementById("dot3").classList.add("active");
   if(current==="area") document.getElementById("dot4").classList.add("active");
+if(current==="faq") document.getElementById("dot5").classList.add("active");
 });
 
 // SCROLL ARROW
 const arrow=document.getElementById("scrollArrow");
 window.addEventListener("scroll",()=>{arrow.style.opacity=Math.max(0,0.4-(window.scrollY/150))});
-arrow.addEventListener("click",()=>{window.scrollBy({top:100,behavior:"smooth"})});
+
+
+arrow.addEventListener("click", () => {
+  const sections = Array.from(document.querySelectorAll("section"));
+  const nextSection = sections.find(sec => sec.offsetTop > window.scrollY + 10);
+  if(nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
+});
 
 // EN/FR TOGGLE
 // EN/FR TOGGLE - fully fixes form placeholders and file text
