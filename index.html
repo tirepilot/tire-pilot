@@ -448,6 +448,24 @@ window.open(paymentLink,"_blank");
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ydp6mqz67yUKBJAq7GX6hQO9GhCEprg&callback=initMap">
 </script>
 
+<section id="faq" class="py-20 text-center">
+  <h2 class="text-4xl gold font-bold mb-12">Frequently Asked Questions</h2>
+  <div class="max-w-4xl mx-auto text-left space-y-6">
+    <div class="bg-black/30 p-6 rounded-lg">
+      <p class="gold font-bold">Do you come to my location?</p>
+      <p class="text-gray-300 mt-2">Yes! We provide mobile tire services at your home, work, or roadside.</p>
+    </div>
+    <div class="bg-black/30 p-6 rounded-lg">
+      <p class="gold font-bold">What payment methods do you accept?</p>
+      <p class="text-gray-300 mt-2">We accept Visa, Mastercard, Amex, Interac, and online payment via Stripe.</p>
+    </div>
+    <div class="bg-black/30 p-6 rounded-lg">
+      <p class="gold font-bold">How fast can you arrive?</p>
+      <p class="text-gray-300 mt-2">Our average response time is 30-45 minutes, priority service is faster.</p>
+    </div>
+  </div>
+</section>
+
 <!-- PAYMENTS ACCEPTED -->
 <section class="py-16 text-center border-t border-yellow-600/30">
   <h2 class="text-3xl gold font-bold mb-8"
@@ -591,5 +609,30 @@ fileInput.addEventListener("change", function () {
 
 });
 
-</script></body>
+</script>
+
+<!-- BACK TO TOP BUTTON -->
+<a id="backToTop" title="Back to Top"
+   class="fixed right-9 bottom-28 z-50 cursor-pointer transition transform hover:scale-110"
+   style="display:none;">
+  <div class="bg-yellow-500 rounded-full h-12 w-12 flex justify-center items-center shadow-md">
+    <span class="text-black font-bold text-lg">↑</span>
+  </div>
+</a>
+
+<script>
+const topBtn = document.getElementById("backToTop");
+
+// Show button after scrolling 300px
+window.addEventListener("scroll", () => {
+  topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+
+// Scroll smoothly to top on click
+topBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
 </html>
