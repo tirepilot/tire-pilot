@@ -496,10 +496,9 @@ function initMap() {
   );
   bounds.union(circleBounds);
 
-  // Fit map to markers + circle
-  map.fitBounds(bounds);
-	// Zoom in more (override fitBounds)
-map.setZoom(11); // <-- change this number to control zoom
+  // Center on circle
+map.setCenter(circleCenter);
+map.setZoom(12); // <-- increase number for more zoom
 	
 }
 </script>
