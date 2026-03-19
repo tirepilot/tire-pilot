@@ -447,11 +447,17 @@ window.open(paymentLink,"_blank");
   zoom: 10,
   center: { lat: 43.7, lng: -79.3 },
   styles: [
-    { elementType: "geometry", stylers: [{ color: "#0b0b0b" }] },
+    { elementType: "geometry", stylers: [{ color: "#1a1a1a" }] },
+    { elementType: "labels.text.fill", stylers: [{ color: "#e5c76b" }] },
     { elementType: "labels.text.stroke", stylers: [{ color: "#0b0b0b" }] },
-    { elementType: "labels.text.fill", stylers: [{ color: "#d4af37" }] },
-    { featureType: "road", elementType: "geometry", stylers: [{ color: "#1a1a1a" }] },
-    { featureType: "water", elementType: "geometry", stylers: [{ color: "#000000" }] }
+
+    { featureType: "road", elementType: "geometry", stylers: [{ color: "#2a2a2a" }] },
+    { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#3a3a3a" }] },
+    { featureType: "road.local", elementType: "geometry", stylers: [{ color: "#2f2f2f" }] },
+
+    { featureType: "water", elementType: "geometry", stylers: [{ color: "#111111" }] },
+
+    { featureType: "poi", elementType: "geometry", stylers: [{ color: "#1f1f1f" }] }
   ]
 });
 
