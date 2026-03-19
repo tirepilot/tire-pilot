@@ -158,6 +158,7 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
     <a href="#book" data-en="Book Service" data-fr="Réserver un service">Book Service</a>
     <a href="#area" data-en="Service Area" data-fr="Zone de service">Service Area</a>
     <a href="#faq" data-en="FAQ" data-fr="FAQ">FAQ</a>
+	<a href="#" id="contactLink">Contact</a>
   </nav>
   <div class="flex gap-3">
     <button id="langToggle" class="bg-gray-800 px-3 py-1 rounded">EN</button>
@@ -545,10 +546,11 @@ window.addEventListener("scroll",()=>{
   sections.forEach(sec=>{if(pageYOffset>=sec.offsetTop-200){current=sec.getAttribute("id")}});
   document.querySelectorAll(".dot-nav button").forEach(btn=>btn.classList.remove("active"));
   if(current==="services") document.getElementById("dot1").classList.add("active");
-  if(current==="how") document.getElementById("dot2").classList.add("active");
-  if(current==="book") document.getElementById("dot3").classList.add("active");
-  if(current==="area") document.getElementById("dot4").classList.add("active");
-if(current==="faq") document.getElementById("dot5").classList.add("active");
+if(current==="how") document.getElementById("dot2").classList.add("active");
+if(current==="prices") document.getElementById("dot3").classList.add("active");
+if(current==="book") document.getElementById("dot4").classList.add("active");
+if(current==="area") document.getElementById("dot5").classList.add("active");
+if(current==="faq") document.getElementById("dot6").classList.add("active");
 });
 
 // SCROLL ARROW
@@ -590,10 +592,25 @@ langBtn.addEventListener("click", () => {
 });
 
 // CONTACT MODAL
-const contactModal=document.getElementById("contactModal");
-document.getElementById("contactLink").addEventListener("click",()=>{contactModal.style.display="flex"});
-document.querySelector(".closeModal").addEventListener("click",()=>{contactModal.style.display="none"});
-window.addEventListener("click",(e)=>{if(e.target==contactModal){contactModal.style.display="none"}});
+// CONTACT MODAL
+const contactModal = document.getElementById("contactModal");
+const contactLink = document.getElementById("contactLink");
+
+if (contactLink) {
+  contactLink.addEventListener("click", () => {
+    contactModal.style.display = "flex";
+  });
+}
+
+document.querySelector(".closeModal").addEventListener("click", () => {
+  contactModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target == contactModal) {
+    contactModal.style.display = "none";
+  }
+});
 
 const fileInput = document.getElementById("realFileInput");
 const customBtn = document.getElementById("customFileBtn");
