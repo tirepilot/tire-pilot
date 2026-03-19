@@ -461,26 +461,41 @@ function initMap() {
     url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
   };
 
-  locations.forEach(loc => {
-    new google.maps.Marker({
-      position: { lat: loc.lat, lng: loc.lng },
-      map: map,
-      title: "TirePilot Service - " + loc.name,
-      icon: markerIcon
-    });
-  });
+ const bounds = new google.maps.LatLngBounds();
 
-  new google.maps.Circle({
+// Add all markers to bounds
+locations.forEach(loc => {
+  const marker = new google.maps.Marker({
+    position: { lat: loc.lat, lng: loc.lng },
+    map: map,
+    title: "TirePilot Service - " + loc.name,
+    icon: markerIcon
+  });
+  bounds.extend(marker.getPosition());
+});
+
+// Extend bounds for the circle radius
+const circleCenter = new google.maps.LatLng(43.8175, -79.1856);
+const circleRadius = 45000; // in meters
+bounds.union(new google.maps.LatLngBounds(
+  new google.maps.LatLng(circleCenter.lat() - 0.5, circleCenter.lng() - 0.5),
+  new google.maps.LatLng(circleCenter.lat() + 0.5, circleCenter.lng() + 0.5)
+));
+
+// Fit map
+map.fitBounds(bounds);
+
+// Draw circle
+new google.maps.Circle({
   strokeColor: "#d4af37",
   strokeOpacity: 0.8,
   strokeWeight: 2,
   fillColor: "#d4af37",
   fillOpacity: 0.08,
   map: map,
-  center: { lat: 43.8175, lng: -79.1856 }, // Toronto Zoo, Scarborough
-  radius: 30000 // 30 km radius to touch Oshawa
+  center: circleCenter,
+  radius: circleRadius
 });
-}
 </script>
 
 <!-- Google Maps API (must be AFTER the function) -->
