@@ -429,70 +429,71 @@ window.open(paymentLink,"_blank");
 </section>
 
 <!-- Google Maps Script -->
-<script>
-  function initMap() {
-    const locations = [
-      { name: "Scarborough, ON, CA", lat: 43.773, lng: -79.257 },
-      { name: "Toronto, ON, CA", lat: 43.653, lng: -79.383 },
-      { name: "Ajax, ON, CA", lat: 43.850, lng: -79.020 },
-      { name: "Pickering, ON, CA", lat: 43.838, lng: -79.085 },
-      { name: "Markham, ON, CA", lat: 43.856, lng: -79.337 },
-      { name: "Vaughan, ON, CA", lat: 43.837, lng: -79.508 },
-      { name: "North York, ON, CA", lat: 43.761, lng: -79.411 },
-      { name: "Oshawa, ON, CA", lat: 43.897, lng: -78.865 }
-    ];
-
-    // Map center — can be average or first location
-    const map = new google.maps.Map(document.getElementById("map"), {
-  zoom: 10,
-  center: { lat: 43.7, lng: -79.3 },
-  styles: [
-    { elementType: "geometry", stylers: [{ color: "#1a1a1a" }] },
-    { elementType: "labels.text.fill", stylers: [{ color: "#e5c76b" }] },
-    { elementType: "labels.text.stroke", stylers: [{ color: "#0b0b0b" }] },
-
-    { featureType: "road", elementType: "geometry", stylers: [{ color: "#2a2a2a" }] },
-    { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#3a3a3a" }] },
-    { featureType: "road.local", elementType: "geometry", stylers: [{ color: "#2f2f2f" }] },
-
-    { featureType: "water", elementType: "geometry", stylers: [{ color: "#111111" }] },
-
-    { featureType: "poi", elementType: "geometry", stylers: [{ color: "#1f1f1f" }] }
-  ]
-});
-
-    // Add markers
-    locations.forEach(loc => {
-      new google.maps.Marker({
-        position: { lat: loc.lat, lng: loc.lng },
-        map: map,
-        title: loc.name
-      });
-    });
-  }
-</script>
-
-<script async
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ydp6mqz67yUKBJAq7GX6hQO9GhCEprg&callback=initMap">
-</script>
-
-<section id="faq" class="py-20 text-center">
-  <h2 class="text-4xl gold font-bold mb-12">Frequently Asked Questions</h2>
-  <div class="max-w-4xl mx-auto text-left space-y-6">
-    <div class="bg-black/30 p-6 rounded-lg">
-      <p class="gold font-bold">Do you come to my location?</p>
-      <p class="text-gray-300 mt-2">Yes! We provide mobile tire services at your home, work, or roadside.</p>
-    </div>
-    <div class="bg-black/30 p-6 rounded-lg">
-      <p class="gold font-bold">What payment methods do you accept?</p>
-      <p class="text-gray-300 mt-2">We accept Visa, Mastercard, Amex, Interac, and online payment via Stripe.</p>
-    </div>
-    <div class="bg-black/30 p-6 rounded-lg">
-      <p class="gold font-bold">How fast can you arrive?</p>
-      <p class="text-gray-300 mt-2">Our average response time is 30-45 minutes, priority service is faster.</p>
-    </div>
-  </div>
+<!-- MAP SECTION -->
+<section id="area">
+  <div id="map"></div>
 </section>
+
+<!-- Your map function -->
+<script>
+function initMap() {
+  const locations = [
+    { name: "Scarborough", lat: 43.773, lng: -79.257 },
+    { name: "Toronto", lat: 43.653, lng: -79.383 },
+    { name: "Ajax", lat: 43.850, lng: -79.020 },
+    { name: "Pickering", lat: 43.838, lng: -79.085 },
+    { name: "Markham", lat: 43.856, lng: -79.337 },
+    { name: "Vaughan", lat: 43.837, lng: -79.508 },
+    { name: "North York", lat: 43.761, lng: -79.411 },
+    { name: "Oshawa", lat: 43.897, lng: -78.865 }
+  ];
+
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: { lat: 43.7, lng: -79.3 },
+    styles: [
+      { elementType: "geometry", stylers: [{ color: "#1c1c1c" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#d4af37" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#000000" }] },
+      { featureType: "road", elementType: "geometry", stylers: [{ color: "#2b2b2b" }] },
+      { featureType: "road.highway", elementType: "geometry", stylers: [{ color: "#3a3a3a" }] },
+      { featureType: "water", elementType: "geometry", stylers: [{ color: "#0f0f0f" }] }
+    ]
+  });
+
+  const markerIcon = {
+    url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+  };
+
+  locations.forEach(loc => {
+    new google.maps.Marker({
+      position: { lat: loc.lat, lng: loc.lng },
+      map: map,
+      title: "TirePilot Service - " + loc.name,
+      icon: markerIcon
+    });
+  });
+
+  new google.maps.Circle({
+    strokeColor: "#d4af37",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#d4af37",
+    fillOpacity: 0.08,
+    map: map,
+    center: { lat: 43.7, lng: -79.3 },
+    radius: 35000
+  });
+}
+</script>
+
+<!-- Google Maps API (must be AFTER the function) -->
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+</body>
+</html>
 
 <!-- PAYMENTS ACCEPTED -->
 <section class="py-16 text-center border-t border-yellow-600/30">
