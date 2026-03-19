@@ -498,7 +498,8 @@ function initMap() {
 
   // Fit map to markers + circle
   map.fitBounds(bounds);
-	map.setZoom(map.getZoom() + 2);
+	// Zoom in more (override fitBounds)
+map.setZoom(11); // <-- change this number to control zoom
 	
 }
 </script>
