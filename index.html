@@ -446,7 +446,7 @@ function initMap() {
 
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 10,
-    center: { lat: 43.7, lng: -79.3 },
+    center: { lat: 43.8175, lng: -79.1856 }, // Toronto Zoo center
     styles: [
       { elementType: "geometry", stylers: [{ color: "#1c1c1c" }] },
       { elementType: "labels.text.fill", stylers: [{ color: "#d4af37" }] },
@@ -461,43 +461,45 @@ function initMap() {
     url: "https://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
   };
 
- const bounds = new google.maps.LatLngBounds();
+  const bounds = new google.maps.LatLngBounds();
 
-// Add all markers to bounds
-locations.forEach(loc => {
-  const marker = new google.maps.Marker({
-    position: { lat: loc.lat, lng: loc.lng },
-    map: map,
-    title: "TirePilot Service - " + loc.name,
-    icon: markerIcon
+  // Add all markers to bounds
+  locations.forEach(loc => {
+    const marker = new google.maps.Marker({
+      position: { lat: loc.lat, lng: loc.lng },
+      map: map,
+      title: "TirePilot Service - " + loc.name,
+      icon: markerIcon
+    });
+    bounds.extend(marker.getPosition());
   });
-  bounds.extend(marker.getPosition());
-});
 
-// Extend bounds for the circle radius
-const circleCenter = new google.maps.LatLng(43.8175, -79.1856);
-const circleRadius = 45000; // in meters
-bounds.union(new google.maps.LatLngBounds(
-  new google.maps.LatLng(circleCenter.lat() - 0.5, circleCenter.lng() - 0.5),
-  new google.maps.LatLng(circleCenter.lat() + 0.5, circleCenter.lng() + 0.5)
-));
+  // Circle setup
+  const circleCenter = new google.maps.LatLng(43.8175, -79.1856); // Toronto Zoo
+  const circleRadius = 45000; // 45 km
 
-// Fit map
-map.fitBounds(bounds);
+  new google.maps.Circle({
+    strokeColor: "#d4af37",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#d4af37",
+    fillOpacity: 0.08,
+    map: map,
+    center: circleCenter,
+    radius: circleRadius
+  });
 
-// Draw circle
-new google.maps.Circle({
-  strokeColor: "#d4af37",
-  strokeOpacity: 0.8,
-  strokeWeight: 2,
-  fillColor: "#d4af37",
-  fillOpacity: 0.08,
-  map: map,
-  center: circleCenter,
-  radius: circleRadius
-});
+  // Extend bounds to include circle
+  const circleBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(circleCenter.lat() - 0.45, circleCenter.lng() - 0.45),
+    new google.maps.LatLng(circleCenter.lat() + 0.45, circleCenter.lng() + 0.45)
+  );
+  bounds.union(circleBounds);
+
+  // Fit map to markers + circle
+  map.fitBounds(bounds);
+}
 </script>
-
 <!-- Google Maps API (must be AFTER the function) -->
 <script async
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ydp6mqz67yUKBJAq7GX6hQO9GhCEprg&callback=initMap">
