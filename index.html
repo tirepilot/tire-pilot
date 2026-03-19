@@ -498,6 +498,8 @@ function initMap() {
 
   // Fit map to markers + circle
   map.fitBounds(bounds);
+	map.setZoom(map.getZoom() + 1);
+	
 }
 </script>
 <!-- Google Maps API (must be AFTER the function) -->
