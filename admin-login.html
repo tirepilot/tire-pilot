@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Login | TirePilot</title>
 <style>
-  /* BODY */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -17,7 +16,6 @@
     height: 100vh;
   }
 
-  /* CONTAINER */
   .login-container {
     background: rgba(18, 18, 18, 0.95);
     padding: 40px 30px;
@@ -35,30 +33,32 @@
     font-size: 2rem;
   }
 
-  input[type="text"], input[type="password"] {
+  /* Inputs and Button same size */
+  input[type="text"], input[type="password"], button {
     width: 100%;
-    padding: 14px 12px;
+    padding: 14px 0; /* same height for inputs and button */
     margin-bottom: 20px;
     border-radius: 8px;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+  }
+
+  input[type="text"], input[type="password"] {
     border: 1px solid #d4af37;
     background-color: #132a3a;
     color: white;
-    font-size: 1rem;
+    text-align: left;
+    padding-left: 12px; /* for inner padding */
   }
 
-  input[type="text"]::placeholder,
-  input[type="password"]::placeholder {
+  input::placeholder {
     color: #ccc;
   }
 
   button {
-    width: 100%;
-    padding: 14px 0;
     border: none;
-    border-radius: 8px;
     background: linear-gradient(90deg, #d4af37, #ffd966);
     color: black;
-    font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s;
@@ -75,7 +75,7 @@
 
   a.back-home {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 10px;
     color: #d4af37;
     text-decoration: none;
     transition: color 0.3s;
@@ -89,11 +89,6 @@
 
 <div class="login-container">
   <h1>Admin Login</h1>
-
-  <!-- Optional PHP error message -->
-  <?php if(isset($error_msg)): ?>
-    <p class="error-msg"><?php echo $error_msg; ?></p>
-  <?php endif; ?>
 
   <form method="POST" action="admin-login.php">
     <input type="text" name="username" placeholder="Username" required>
