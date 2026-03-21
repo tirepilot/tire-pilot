@@ -275,7 +275,7 @@ font-size:2rem;color:white;opacity:0.4;cursor:pointer;transition:opacity .5s;z-i
 <div class="max-w-2xl mx-auto booking-card">
 
 <form id="bookingForm" action="https://formsubmit.co/avinashanicanada@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6">
-	<form id="bookingForm" action="https://tirepilot.gamer.gd/submit-form.php" method="POST" enctype="multipart/form-data">
+	
 
 <input type="hidden" name="Booking Type" id="bookingType" value="Pay Later">
 <input type="hidden" name="Priority Service" id="priorityValue" value="No">
@@ -785,5 +785,32 @@ function copyPromo() {
 }
 </script>
 
+
+<script>
+const form = document.getElementById("bookingForm");
+
+form.addEventListener("submit", function(e) {
+  // Send to PHP without blocking FormSubmit.co
+  e.preventDefault(); // prevent default for now
+
+  const formData = new FormData(form);
+
+  // Send to your PHP endpoint
+  fetch("https://tirepilot.gamer.gd/submit-form.php", {
+    method: "POST",
+    body: formData
+  }).then(res => {
+    console.log("Saved to CSV");
+
+    // Now continue with FormSubmit.co submission
+    form.submit(); // actually submit to FormSubmit.co
+  }).catch(err => {
+    console.error("CSV submission failed", err);
+
+    // Still submit to FormSubmit.co
+    form.submit();
+  });
+});
+</script>
 </body>
 </html>
