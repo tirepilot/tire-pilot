@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TirePilot | Our Prices</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body { background:#0b0b0b; color:white; font-family:Arial; }
+.gold { color:#d4af37; }
+
+.price-card {
+  background:#132a3a;
+  border:1px solid #d4af37;
+  border-radius:15px;
+  padding:20px;
+  text-align:center;
+  transition: transform 0.2s;
+}
+.price-card:hover {
+  transform: translateY(-5px);
+}
+.price-card p.name {
+  font-weight:bold;
+  font-size:1.25rem;
+  margin-bottom:10px;
+}
+.price-card p.price {
+  color:#ffd966;
+  font-size:1.5rem;
+  font-weight:bold;
+}
+.toggle-container {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:30px;
+  gap:10px;
+}
+.toggle-label {
+  font-weight:bold;
+  font-size:1rem;
+}
+#priorityToggle {
+  width:50px; height:24px;
+  background:red;
+  border-radius:12px;
+  padding:2px;
+  cursor:pointer;
+  position:relative;
+  transition: background 0.3s;
+}
+#toggleCircle {
+  width:20px; height:20px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:2px;
+  left:2px;
+  transition: transform 0.3s;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="flex items-center p-4">
+<img src="logo.png" class="h-10">
+</header>
+
+<!-- PAGE TITLE -->
+<section class="py-10 text-center">
+<h2 class="text-3xl gold font-bold mb-6">Our Prices</h2>
+
+<div class="toggle-container">
+  <span class="toggle-label">Priority Service (+$10 each)</span>
+  <div id="priorityToggle">
+    <div id="toggleCircle"></div>
+  </div>
+</div>
+</section>
+
+<!-- PRICES CARDS -->
+<section class="py-5 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
+
+<div class="price-card">
+  <p class="name">Wheel Balancing</p>
+  <p class="price" data-base-price="50">$50</p>
+</div>
+
+<div class="price-card">
+  <p class="name">Flat Tire Repair (Small)</p>
+  <p class="price" data-base-price="50">$50</p>
+</div>
+
+<div class="price-card">
+  <p class="name">Flat Tire Repair (Big)</p>
+  <p class="price" data-base-price="90">$90</p>
+</div>
+
+<div class="price-card">
+  <p class="name">Off-Rim Tire Change</p>
+  <p class="price" data-base-price="80">$80</p>
+</div>
+
+<div class="price-card">
+  <p class="name">On-Rim Tire Change</p>
+  <p class="price" data-base-price="50">$50</p>
+</div>
+
+<div class="price-card">
+  <p class="name">Inspection</p>
+  <p class="price" data-base-price="10">$10</p>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-8 border-t border-yellow-600/30 mt-10">
+<p class="gold">TirePilot Mobile Tire Service</p>
+<p class="mt-2">Phone: +1 647-983-9134</p>
+<p class="text-gray-500 mt-6">© 2026 TirePilot | All Rights Reserved</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+// PRIORITY TOGGLE
+let priorityOn = false;
+const toggle = document.getElementById("priorityToggle");
+const circle = document.getElementById("toggleCircle");
+
+toggle.addEventListener("click", () => {
+  priorityOn = !priorityOn;
+  if(priorityOn){
+    toggle.style.background = "green";
+    circle.style.transform = "translateX(26px)";
+  } else {
+    toggle.style.background = "red";
+    circle.style.transform = "translateX(0)";
+  }
+
+  // update prices dynamically
+  const priceElements = document.querySelectorAll("[data-base-price]");
+  priceElements.forEach(el => {
+    const base = parseFloat(el.dataset.basePrice);
+    const total = priorityOn ? base + 10 : base;
+    el.textContent = `$${total}`;
+  });
+});
+</script>
+
+</body>
+</html>
