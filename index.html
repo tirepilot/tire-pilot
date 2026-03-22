@@ -830,10 +830,20 @@ form.addEventListener("submit", function(e) {
   }).then(res => {
     console.log("Saved to CSV");
 
+	   // --- Google Ads Conversion Event ---
+    gtag('event', 'ads_conversion_Form_1', {
+      // optional: add parameters like value, currency
+      // 'value': 50,
+      // 'currency': 'CAD'
+    });
+
     // Now continue with FormSubmit.co submission
     form.submit(); // actually submit to FormSubmit.co
   }).catch(err => {
     console.error("CSV submission failed", err);
+
+	    // Still trigger conversion even if CSV fails
+    gtag('event', 'ads_conversion_Form_1');
 
     // Still submit to FormSubmit.co
     form.submit();
