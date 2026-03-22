@@ -1,6 +1,8 @@
 RewriteEngine On
 
-# Remove .html from URL
+# Make sure requests for real files or directories are not rewritten
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^\.]+)$ $1.html [L]
+
+# Rewrite /booking to /booking.html
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
