@@ -20,14 +20,12 @@
 <meta name="twitter:title" content="TirePilot | 24/7 Mobile Tire Service Toronto">
 <meta name="twitter:description" content="Flat Tire Repair • Tire Change • We Come To You. Call 647-983-9134">
 <meta name="twitter:image" content="https://tirepilot.ca/preview.jpg">
-
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"AutoRepair","name":"TirePilot Mobile Tire","image":"https://tirepilot.ca/logo.png","url":"https://tirepilot.ca","telephone":"+1-XXX-XXX-XXXX","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"areaServed":"Toronto","serviceType":["Flat Tire Repair","Mobile Tire Service","Emergency Tire Change","Roadside Assistance"],"openingHours":"Mo-Su 00:00-23:59"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"TirePilot","url":"https://tirepilot.ca","logo":"https://tirepilot.ca/android-chrome-192x192.png"}
 </script>
-
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,15 +36,12 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="theme-color" content="#0b0b0b">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
-
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18019181088"></script>
 <script>
@@ -55,7 +50,6 @@
   gtag('js', new Date());
   gtag('config', 'AW-18019181088');
 </script>
-
 <meta property="og:title" content="TirePilot | 24/7 Mobile Tire Service Toronto">
 <meta property="og:description" content="Flat Tire Repair • Tire Change • We Come To You. Call 647-983-9134">
 <meta property="og:image" content="https://tirepilot.ca/preview.jpg">
@@ -63,7 +57,6 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://tirepilot.ca">
 <meta property="og:type" content="website">
-
 <style>
 :root {
   --gold: #d4af37;
@@ -73,11 +66,8 @@
   --bg2: #0e0e0e;
   --card-bg: rgba(255,255,255,0.03);
 }
-
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   font-family: 'Barlow', sans-serif;
@@ -85,7 +75,6 @@ body {
   color: white;
   overflow-x: hidden;
 }
-
 /* ── CUSTOM CURSOR ── */
 .cursor-dot {
   width: 8px; height: 8px;
@@ -104,7 +93,6 @@ body {
   transition: transform 0.18s cubic-bezier(0.25,0.46,0.45,0.94), width 0.3s, height 0.3s, border-color 0.3s;
 }
 body:hover .cursor-dot, body:hover .cursor-ring { opacity: 1; }
-
 /* ── NOISE OVERLAY ── */
 body::before {
   content: '';
@@ -112,7 +100,6 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   opacity: 0.35;
 }
-
 /* ── LOADER ── */
 #loader {
   position: fixed; inset: 0;
@@ -134,12 +121,10 @@ body::before {
 }
 @keyframes loading-bar { to { width: 100%; } }
 @keyframes pulse-logo { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.96)} }
-
 /* ── TYPOGRAPHY ── */
 .display-font { font-family: 'Barlow Condensed', sans-serif; }
 .heading-font { font-family: 'Rajdhani', sans-serif; }
 .gold { color: var(--gold); }
-
 /* ── SCANLINE EFFECT ── */
 .scanlines::after {
   content: '';
@@ -147,7 +132,6 @@ body::before {
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
   z-index: 1;
 }
-
 /* ── HEADER ── */
 header {
   background: rgba(0,0,0,0.9);
@@ -177,7 +161,6 @@ header nav a::after {
 }
 header nav a:hover { color: var(--gold); }
 header nav a:hover::after { width: 100%; }
-
 /* ── HERO ── */
 .hero {
   position: relative;
@@ -208,7 +191,6 @@ header nav a:hover::after { width: 100%; }
   animation: glow-pulse 4s ease-in-out infinite;
 }
 @keyframes glow-pulse { 0%,100%{opacity:0.6;transform:translate(-50%,-50%) scale(1)} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)} }
-
 .hero h1 {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: clamp(4rem, 10vw, 8rem);
@@ -230,7 +212,6 @@ header nav a:hover::after { width: 100%; }
   position: relative; z-index: 2;
 }
 .hero-content { position: relative; z-index: 2; }
-
 /* ── ANIMATED TIRE SVG ── */
 .tire-svg-wrap {
   position: absolute;
@@ -242,12 +223,10 @@ header nav a:hover::after { width: 100%; }
 .spin-slow { animation: spin-slow 18s linear infinite; }
 .spin-slow-rev { animation: spin-slow 24s linear infinite reverse; }
 @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-
 /* ── PARTICLES ── */
 #particles-canvas {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
 }
-
 /* ── BUTTON ── */
 .button-primary {
   background: linear-gradient(90deg, var(--gold), var(--gold-light));
@@ -268,7 +247,6 @@ header nav a:hover::after { width: 100%; }
 }
 .button-primary:hover::after { transform: translateX(120%) skewX(-15deg); }
 .button-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,175,55,0.4); }
-
 .button-outline {
   border: 1.5px solid rgba(212,175,55,0.7);
   color: white;
@@ -283,7 +261,6 @@ header nav a:hover::after { width: 100%; }
   border-color: var(--gold);
   transform: translateY(-2px);
 }
-
 /* ── SECTION LABELS ── */
 .section-label {
   font-family: 'Rajdhani', sans-serif;
@@ -293,10 +270,8 @@ header nav a:hover::after { width: 100%; }
   color: var(--gold);
   opacity: 0.8;
 }
-
 /* ── SERVICES ── */
 .services { padding: 100px 20px; position: relative; }
-
 .card {
   background: var(--card-bg);
   border: 1px solid rgba(212,175,55,0.12);
@@ -329,7 +304,6 @@ header nav a:hover::after { width: 100%; }
   transition: background 0.3s;
 }
 .card:hover .card-icon { background: rgba(212,175,55,0.12); }
-
 /* ── STATS BAR ── */
 .stats-bar {
   background: rgba(0,0,0,0.5);
@@ -360,7 +334,6 @@ header nav a:hover::after { width: 100%; }
   color: rgba(255,255,255,0.4);
   margin-top: 6px;
 }
-
 /* ── HOW IT WORKS ── */
 .how-step {
   position: relative;
@@ -383,7 +356,6 @@ header nav a:hover::after { width: 100%; }
   background: linear-gradient(90deg, var(--gold), transparent);
   opacity: 0.2;
 }
-
 /* ── PRICES ── */
 .price-card {
   background: var(--card-bg);
@@ -408,7 +380,6 @@ header nav a:hover::after { width: 100%; }
   color: var(--gold); line-height: 1;
   margin-top: 12px;
 }
-
 /* ── PROMO BANNER ── */
 .promo-strip {
   background: linear-gradient(90deg, #0a0a0a, rgba(212,175,55,0.07), #0a0a0a);
@@ -423,7 +394,6 @@ header nav a:hover::after { width: 100%; }
   animation: shimmer 3s ease-in-out infinite;
 }
 @keyframes shimmer { to { left: 140%; } }
-
 /* ── BOOKING ── */
 .booking-card {
   background: rgba(0,0,0,0.4);
@@ -456,6 +426,96 @@ header nav a:hover::after { width: 100%; }
   background: rgba(212,175,55,0.06);
 }
 .booking-card select option { background: #111; }
+
+/* ── PHONE INPUT WRAPPER ── */
+.phone-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  overflow: hidden;
+  transition: border-color 0.25s, background 0.25s;
+}
+.phone-input-wrapper:focus-within {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.06);
+}
+.phone-prefix {
+  padding: 15px 0 15px 18px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.95rem;
+  color: var(--gold);
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: none;
+  letter-spacing: 0.04em;
+}
+.phone-input-wrapper input {
+  border: none !important;
+  background: transparent !important;
+  padding-left: 6px !important;
+  flex: 1;
+  min-width: 0;
+}
+.phone-input-wrapper input:focus {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ── DISTANCE RESULT ── */
+#distanceResult {
+  margin-top: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  display: none;
+  animation: fadeSlideIn 0.3s ease;
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#distanceResult.within-range {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #86efac;
+}
+#distanceResult.out-of-range {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-light);
+}
+#distanceResult.loading {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+}
+#distanceResult .dist-icon { font-size: 1rem; margin-right: 6px; }
+#distanceResult .dist-charge {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.dist-bar {
+  display: block;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.dist-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
 
 /* ── FAQ ACCORDION ── */
 .faq-item {
@@ -492,7 +552,6 @@ header nav a:hover::after { width: 100%; }
   font-size: 0.95rem; line-height: 1.7;
 }
 .faq-item.open .faq-answer { max-height: 200px; padding: 0 24px 22px; }
-
 /* ── TESTIMONIALS ── */
 .testimonials-wrap { position: relative; overflow: hidden; }
 .testimonials-track {
@@ -511,12 +570,10 @@ header nav a:hover::after { width: 100%; }
 .testi-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
 .testi-text { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 12px; line-height: 1.6; }
 .testi-name { font-family: 'Rajdhani', sans-serif; font-weight: 700; color: var(--gold); margin-top: 16px; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; }
-
 /* ── MAP ── */
 #map { height: 400px; }
 @media(max-width:768px) { #map { height: 280px; } }
 .service-map iframe { border-radius: 15px; border: 1px solid var(--gold); }
-
 /* ── DOT NAV ── */
 .dot-nav {
   position: fixed; left: 20px; top: 50%; transform: translateY(-50%);
@@ -534,7 +591,6 @@ header nav a:hover::after { width: 100%; }
   transform: scale(1.4);
   box-shadow: 0 0 10px rgba(212,175,55,0.5);
 }
-
 /* ── FOOTER ── */
 footer {
   background: #000;
@@ -549,7 +605,6 @@ footer::before {
   width: 300px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
-
 /* ── WHATSAPP BUTTON ── */
 #whatsappBtn {
   position: fixed; bottom: 30px; right: 30px;
@@ -564,7 +619,6 @@ footer::before {
   display: flex; justify-content: center; align-items: center;
   box-shadow: 0 6px 20px rgba(37,211,102,0.35);
 }
-
 /* ── SCROLL ARROW ── */
 #scrollArrow {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
@@ -572,7 +626,6 @@ footer::before {
   animation: bounce-arrow 2s ease-in-out infinite;
 }
 @keyframes bounce-arrow { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
-
 /* ── CONTACT MODAL ── */
 #contactModal {
   display: none; position: fixed; inset: 0;
@@ -601,14 +654,12 @@ footer::before {
   position: absolute; top: 20px; right: 24px;
   font-size: 1.8rem; cursor: pointer; color: var(--gold); line-height: 1;
 }
-
 /* ── BACK TO TOP ── */
 #backToTop {
   position: fixed; right: 90px; bottom: 30px; z-index: 50;
   cursor: pointer; transition: transform 0.3s, opacity 0.3s;
 }
 #backToTop:hover { transform: translateY(-4px) scale(1.05); }
-
 /* ── PAYMENT LOGOS ── */
 .payment-logo {
   height: 32px; object-fit: contain; opacity: 0.7;
@@ -616,7 +667,6 @@ footer::before {
   transition: opacity 0.3s, filter 0.3s, transform 0.3s;
 }
 .payment-logo:hover { opacity: 1; filter: none; transform: translateY(-3px); }
-
 /* ── PRIORITY TOGGLE ── */
 #priorityToggle {
   width: 56px; height: 30px; border-radius: 30px;
@@ -629,26 +679,22 @@ footer::before {
   background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
 }
-
 /* ── TIRE TRACKS DECO ── */
 .tire-track-deco {
   position: absolute; width: 100%; height: 100%;
   pointer-events: none; overflow: hidden; opacity: 0.03;
 }
-
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   .booking-card { padding: 28px 20px; }
   .dot-nav { left: 10px; }
   #backToTop { right: 80px; }
 }
-
 /* ── SECTION DIVIDER ── */
 .section-divider {
   height: 1px; max-width: 900px; margin: 0 auto;
   background: linear-gradient(90deg, transparent, rgba(212,175,55,0.25), transparent);
 }
-
 /* ── TRUST BADGES ── */
 .trust-badge {
   display: flex; align-items: center; gap: 10px;
@@ -662,7 +708,6 @@ footer::before {
 }
 .trust-badge:hover { border-color: rgba(212,175,55,0.35); background: rgba(212,175,55,0.05); }
 .trust-badge-icon { color: var(--gold); font-size: 1.2rem; }
-
 /* ── AREA CHIPS ── */
 .area-chip {
   padding: 10px 20px;
@@ -678,7 +723,6 @@ footer::before {
   background: rgba(212,175,55,0.07);
   transform: translateY(-2px);
 }
-
 /* ── LIVE BADGE ── */
 .live-badge {
   display: inline-flex; align-items: center; gap: 7px;
@@ -697,24 +741,20 @@ footer::before {
 </style>
 </head>
 <body>
-
 <!-- CUSTOM CURSOR -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
 <!-- LOADER -->
 <div id="loader">
   <img src="logo.png" alt="TirePilot Logo" id="loaderLogo">
   <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
 </div>
-
 <!-- SCROLL ARROW -->
 <div id="scrollArrow">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="M12 5v14M5 12l7 7 7-7"/>
   </svg>
 </div>
-
 <!-- DOT NAV -->
 <div class="dot-nav">
   <button onclick="scrollToSection('services')" id="dot1" title="Services"></button>
@@ -724,12 +764,10 @@ footer::before {
   <button onclick="scrollToSection('area')" id="dot5" title="Service Area"></button>
   <button onclick="scrollToSection('faq')" id="dot6" title="FAQ"></button>
 </div>
-
 <!-- WHATSAPP -->
 <a href="https://wa.me/16479839134?text=Emergency%20Tire%20Help" target="_blank" id="whatsappBtn" title="Emergency Tire Help">
   <div><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="h-8 w-8"></div>
 </a>
-
 <!-- CONTACT MODAL -->
 <div id="contactModal">
   <div class="modal-content" style="position:relative">
@@ -741,7 +779,6 @@ footer::before {
     <a href="#" onclick="window.location='mailto:'+'services'+'@'+'tirepilot.ca'">📧 &nbsp;Email</a>
   </div>
 </div>
-
 <!-- ══════════ HEADER ══════════ -->
 <header class="flex justify-between items-center px-6 py-3">
   <img src="logo.png" class="h-10" alt="TirePilot">
@@ -764,14 +801,12 @@ footer::before {
     <a href="tel:6479839134" class="button-primary px-5 py-2 rounded-lg text-sm" data-en="Call Now" data-fr="Appelez">Call Now</a>
   </div>
 </header>
-
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" id="hero-section">
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <canvas id="particles-canvas"></canvas>
-
   <!-- Decorative Tire SVGs -->
   <div class="tire-svg-wrap left" style="width:320px;height:320px;">
     <svg viewBox="0 0 200 200" class="spin-slow" width="320" height="320">
@@ -799,26 +834,21 @@ footer::before {
       <line x1="120" y1="100" x2="160" y2="100" stroke="white" stroke-width="3"/>
     </svg>
   </div>
-
   <div class="hero-content px-4" style="position:relative;z-index:2;">
     <!-- Live Badge -->
     <div class="flex justify-center mb-5">
       <span class="live-badge"><span class="live-dot"></span>Available Now</span>
     </div>
-
     <h1 id="heroTitle" data-en="Tire Pilot" data-fr="Tire Pilot">Tire Pilot</h1>
     <p class="hero-sub" data-en="24/7 Mobile Tire Service · Toronto" data-fr="Service de pneus mobile 24/7 · Toronto">24/7 Mobile Tire Service · Toronto</p>
-
     <!-- Trust line -->
     <p style="font-size:0.8rem;color:rgba(255,255,255,0.35);letter-spacing:0.25em;text-transform:uppercase;margin-top:10px;font-family:'Rajdhani',sans-serif;">
       Fast Arrival · Professional Service · Every Time
     </p>
-
     <div class="mt-10 flex flex-wrap gap-4 justify-center">
       <a href="#book" class="button-primary px-8 py-3 rounded-lg text-sm" data-en="Book Service" data-fr="Réserver">Book Service</a>
       <a href="tel:6479839134" class="button-outline px-8 py-3 rounded-lg text-sm" data-en="Call Now" data-fr="Appelez maintenant">Call Now</a>
     </div>
-
     <!-- Trust badges row -->
     <div class="flex flex-wrap justify-center gap-3 mt-10">
       <div class="trust-badge"><span class="trust-badge-icon">⚡</span><span>30-Min Arrival</span></div>
@@ -826,11 +856,9 @@ footer::before {
       <div class="trust-badge"><span class="trust-badge-icon">🕐</span><span>24/7 Service</span></div>
     </div>
   </div>
-
   <!-- Hero bottom gradient -->
   <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--bg));z-index:2;"></div>
 </section>
-
 <!-- ══════════ STATS BAR ══════════ -->
 <section class="stats-bar">
   <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -852,7 +880,6 @@ footer::before {
     </div>
   </div>
 </section>
-
 <!-- ══════════ SERVICES ══════════ -->
 <section id="services" class="services">
   <div class="text-center mb-16">
@@ -890,12 +917,9 @@ footer::before {
     </div>
   </div>
 </section>
-
 <!-- ══════════ HOW IT WORKS ══════════ -->
 <section id="how" class="py-24 relative overflow-hidden">
-  <!-- Background accents -->
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,0.04),transparent 70%);pointer-events:none;"></div>
-
   <div class="text-center mb-16">
     <p class="section-label mb-3">The Process</p>
     <h2 class="display-font text-5xl font-black gold" data-en="How It Works" data-fr="Comment ça marche">How It Works</h2>
@@ -927,7 +951,6 @@ footer::before {
     </div>
   </div>
 </section>
-
 <!-- ══════════ PRICES ══════════ -->
 <section id="prices" class="services">
   <div class="text-center mb-16">
@@ -936,7 +959,6 @@ footer::before {
   </div>
   <div class="max-w-5xl mx-auto grid md:grid-cols-4 gap-6 px-4">
     <div class="price-card">
-<!-- Popular badge -->
       <div style="position:absolute;top:-1px;right:20px;background:linear-gradient(90deg,var(--gold),var(--gold-light));color:black;font-size:0.65rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:0.1em;padding:3px 12px;border-radius:0 0 8px 8px;text-transform:uppercase;">Popular</div>
       <div class="card-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
@@ -946,10 +968,8 @@ footer::before {
       <p class="text-gray-500 text-xs mt-2">Quick Swap</p>
     </div>
     <div class="price-card" style="transition-delay:0.1s">
-
-      <div class="card-icon">
-<!-- Popular badge -->
       <div style="position:absolute;top:-1px;right:20px;background:linear-gradient(90deg,var(--gold),var(--gold-light));color:black;font-size:0.65rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:0.1em;padding:3px 12px;border-radius:0 0 8px 8px;text-transform:uppercase;">Popular</div>
+      <div class="card-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <h3 class="heading-font font-bold text-base text-white" data-en="Flat Repair (Small)" data-fr="Réparation crevé (petit)">Flat Repair (Small)</h3>
@@ -957,10 +977,7 @@ footer::before {
       <p class="text-gray-500 text-xs mt-2">Roadside repair</p>
     </div>
     <div class="price-card" style="transition-delay:0.2s;border-color:rgba(212,175,55,0.3);">
-      <!-- Popular badge -->
-      <div style="position:absolute;top:-1px;right:20px;background:linear-gradient(90deg,#ff0000,#ff4d4d);color:white;font-size:0.65rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:0.1em;padding:3px 12px;border-radius:0 0 8px 8px;text-transform:uppercase;">
-  No Slots Available
-</div>
+      <div style="position:absolute;top:-1px;right:20px;background:linear-gradient(90deg,#ff0000,#ff4d4d);color:white;font-size:0.65rem;font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:0.1em;padding:3px 12px;border-radius:0 0 8px 8px;text-transform:uppercase;">No Slots Available</div>
       <div class="card-icon">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
       </div>
@@ -969,11 +986,7 @@ footer::before {
       <p class="text-gray-500 text-xs mt-2">Full dismount & mount</p>
     </div>
     <div class="price-card" style="transition-delay:0.3s">
-
-
       <div class="card-icon">
-
-
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.8" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
       </div>
       <h3 class="heading-font font-bold text-base text-white" data-en="Wheel Balancing" data-fr="Équilibrage">Wheel Balancing</h3>
@@ -982,7 +995,6 @@ footer::before {
     </div>
   </div>
 </section>
-
 <!-- ══════════ PROMO BANNER ══════════ -->
 <section class="px-6 pb-20">
   <div class="max-w-5xl mx-auto">
@@ -1002,7 +1014,6 @@ footer::before {
     </div>
   </div>
 </section>
-
 <!-- ══════════ TESTIMONIALS ══════════ -->
 <section class="py-20 overflow-hidden">
   <div class="text-center mb-14">
@@ -1010,47 +1021,78 @@ footer::before {
     <h2 class="display-font text-5xl font-black gold">What Clients Say</h2>
   </div>
   <div class="testimonials-wrap relative">
-    <!-- fades on edges -->
     <div style="position:absolute;left:0;top:0;bottom:0;width:100px;background:linear-gradient(90deg,var(--bg),transparent);z-index:2;pointer-events:none;"></div>
     <div style="position:absolute;right:0;top:0;bottom:0;width:100px;background:linear-gradient(-90deg,var(--bg),transparent);z-index:2;pointer-events:none;"></div>
     <div class="testimonials-track py-2">
-      <!-- Cards duplicated for seamless loop -->
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Got a flat on the 401 at midnight. TirePilot arrived in under 35 minutes. Saved my night!"</p><p class="testi-name">— Michael T., Scarborough</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Booked online, tech showed up to my workplace, swapped my tires and I didn't miss a meeting."</p><p class="testi-name">— Sarah K., North York</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Super professional. Showed up with all the equipment needed. Price was exactly as listed."</p><p class="testi-name">— David R., Markham</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Used TirePilot for my seasonal change. Way better than waiting at a shop for 3 hours."</p><p class="testi-name">— Priya M., Vaughan</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Had a flat tire today, and the team responded instantly, arrived on-site and fixed it at a very reasonable price. Extremely professional and helpful service!"</p><p class="testi-name">— Krishnendu Saju., Scarborough</p></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Tire Pilot came right to my place for a tire change on my Tesla Model Y, which made the whole process super convenient. The service was quick, professional, and they clearly knew how to handle EVs properly. "</p><p class="testi-name">— Dr. Franklin Joseph., Markham</p></div>
-      <!-- Duplicate for seamless -->
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Tire Pilot came right to my place for a tire change on my Tesla Model Y, which made the whole process super convenient. The service was quick, professional, and they clearly knew how to handle EVs properly."</p><p class="testi-name">— Dr. Franklin Joseph., Markham</p></div>
+      <!-- Duplicated for seamless loop -->
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Got a flat on the 401 at midnight. TirePilot arrived in under 35 minutes. Saved my night!"</p><p class="testi-name">— Michael T., Scarborough</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Booked online, tech showed up to my workplace, swapped my tires and I didn't miss a meeting."</p><p class="testi-name">— Sarah K., North York</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Super professional. Showed up with all the equipment needed. Price was exactly as listed."</p><p class="testi-name">— David R., Markham</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Used TirePilot for my seasonal change. Way better than waiting at a shop for 3 hours."</p><p class="testi-name">— Priya M., Vaughan</p></div>
       <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Had a flat tire today, and the team responded instantly, arrived on-site and fixed it at a very reasonable price. Extremely professional and helpful service!"</p><p class="testi-name">— Krishnendu Saju., Scarborough</p></div>
-      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Tire Pilot came right to my place for a tire change on my Tesla Model Y, which made the whole process super convenient, The service was quick, professional, and they clearly knew how to handle EVs properly. "</p><p class="testi-name">— Dr. Franklin Joseph., Markham</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Tire Pilot came right to my place for a tire change on my Tesla Model Y, which made the whole process super convenient. The service was quick, professional, and they clearly knew how to handle EVs properly."</p><p class="testi-name">— Dr. Franklin Joseph., Markham</p></div>
     </div>
   </div>
 </section>
-
 <!-- ══════════ BOOKING ══════════ -->
 <section id="book" class="py-20">
   <div class="text-center mb-14">
     <p class="section-label mb-3">Get Help Now</p>
     <h2 class="display-font text-5xl font-black gold" data-en="Request Service" data-fr="Demander un service">Request Service</h2>
   </div>
-
-  <div class="max-w-2xl mx-auto booking-card mx-4" style="margin-left:auto;margin-right:auto;">
+  <div class="max-w-2xl mx-auto booking-card" style="margin-left:auto;margin-right:auto;">
     <form id="bookingForm" action="https://formsubmit.co/avinashanicanada@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-5">
       <input type="hidden" name="Booking Type" id="bookingType" value="Pay Later">
       <input type="hidden" name="Priority Service" id="priorityValue" value="No">
       <input type="hidden" name="_subject" value="New TirePilot Booking">
       <input type="hidden" name="_captcha" value="false">
+      <!-- Travel Charge hidden field, auto-populated -->
+      <input type="hidden" name="Travel Charge" id="travelChargeInput" value="None">
 
+      <!-- Name -->
       <input type="text" name="Name" placeholder="Your Name" data-en-placeholder="Your Name" data-fr-placeholder="Votre nom" required>
-      <input type="tel" name="Phone" placeholder="Phone Number" data-en-placeholder="Phone Number" data-fr-placeholder="Numéro de téléphone" required>
-      <input type="text" name="Location" placeholder="Your Location" data-en-placeholder="Your Location" data-fr-placeholder="Emplacement" required>
-      <input type="text" name="Vehicle" placeholder="Vehicle Make, Model & Year" data-en-placeholder="Vehicle Make, Model & Year" data-fr-placeholder="Modèle et année" required>
 
+      <!-- ── PHONE WITH +1 PREFIX ── -->
+      <div class="phone-input-wrapper">
+        <span class="phone-prefix">+1</span>
+        <input
+          type="tel"
+          name="Phone"
+          id="phoneInput"
+          placeholder="(416) 555-0123"
+          data-en-placeholder="(416) 555-0123"
+          data-fr-placeholder="(416) 555-0123"
+          maxlength="14"
+          autocomplete="tel-national"
+          required>
+      </div>
+
+      <!-- ── LOCATION WITH DISTANCE CHECK ── -->
+      <div>
+        <input
+          type="text"
+          name="Location"
+          id="locationInput"
+          placeholder="Your Location (intersection)"
+          data-en-placeholder="Your Location (intersection)"
+          data-fr-placeholder="Votre emplacement (intersection)"
+          autocomplete="off"
+          required>
+        <!-- Distance result box -->
+        <div id="distanceResult">
+          <span class="dist-icon"></span><span id="distanceText"></span>
+          <span class="dist-charge" id="distanceCharge"></span>
+          <span class="dist-bar"><span class="dist-bar-fill" id="distBarFill"></span></span>
+        </div>
+      </div>
+
+      <input type="text" name="Vehicle" placeholder="Vehicle Make, Model & Year" data-en-placeholder="Vehicle Make, Model & Year" data-fr-placeholder="Modèle et année" required>
       <select name="Service">
         <option data-en="Off-Rim Tire Change" data-fr="Changement hors jante">Off-Rim Tire Change</option>
         <option data-en="On-Rim Tire Change" data-fr="Changement sur jante">On-Rim Tire Change</option>
@@ -1059,7 +1101,6 @@ footer::before {
         <option data-en="Tire Rotation" data-fr="Rotation des pneus">Tire Rotation</option>
         <option data-en="Inspection" data-fr="Inspection">Inspection</option>
       </select>
-
       <!-- PRIORITY TOGGLE -->
       <div class="flex items-center justify-between border border-yellow-600/40 p-5 rounded-xl bg-yellow-500/[0.03]">
         <div>
@@ -1070,7 +1111,6 @@ footer::before {
           <div id="toggleCircle"></div>
         </div>
       </div>
-
       <!-- FILE UPLOAD -->
       <div class="relative w-full space-y-3">
         <button type="button" id="customFileBtn" class="w-full p-4 rounded-xl border border-yellow-600/40 bg-white/[0.03] text-white text-left transition hover:border-yellow-500/70">
@@ -1079,7 +1119,6 @@ footer::before {
         <input type="file" name="Photo" accept="image/*" id="realFileInput" class="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer">
         <img id="imagePreview" class="hidden w-full max-h-48 object-cover rounded-xl border border-yellow-600/40"/>
       </div>
-
       <!-- SUBMIT BUTTONS -->
       <div class="flex flex-col gap-4 pt-2">
         <button type="submit" class="button-primary w-full py-4 rounded-xl text-sm" data-en="Request Service (Pay Later)" data-fr="Demander le service (payer plus tard)">Request Service (Pay Later)</button>
@@ -1090,7 +1129,6 @@ footer::before {
     </form>
   </div>
 </section>
-
 <!-- ══════════ SERVICE AREA ══════════ -->
 <section id="area" class="py-20 text-center">
   <div class="text-center mb-14">
@@ -1098,11 +1136,9 @@ footer::before {
     <h2 class="display-font text-5xl font-black gold" data-en="Service Area" data-fr="Zone de service">Service Area</h2>
     <p class="text-gray-500 mt-4 text-sm" data-en="Mobile service across the GTA." data-fr="Service mobile dans le Grand Toronto.">Mobile service across the Greater Toronto Area.</p>
   </div>
-
   <div class="max-w-6xl mx-auto px-4">
     <div id="map" class="w-full rounded-2xl border border-yellow-600/30" style="overflow:hidden;"></div>
   </div>
-
   <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mt-12 px-4">
     <div class="area-chip">Scarborough</div>
     <div class="area-chip">Toronto</div>
@@ -1115,6 +1151,7 @@ footer::before {
   </div>
 </section>
 
+<!-- Google Maps API — loaded once, shared by map init + distance matrix -->
 <script>
 function initMap() {
   const locations = [
@@ -1149,9 +1186,16 @@ function initMap() {
     fillColor: "#d4af37", fillOpacity: 0.05,
     map, center: { lat: 43.8175, lng: -79.1856 }, radius: 45000
   });
+
+  // ── Signal that Maps API is ready for distance calculations ──
+  window._mapsReady = true;
+  if (window._pendingDistanceCheck) {
+    window._pendingDistanceCheck();
+    window._pendingDistanceCheck = null;
+  }
 }
 </script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ydp6mqz67yUKBJAq7GX6hQO9GhCEprg&callback=initMap" defer></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Ydp6mqz67yUKBJAq7GX6hQO9GhCEprg&callback=initMap&libraries=places" defer></script>
 
 <!-- ══════════ FAQ ══════════ -->
 <section id="faq" class="py-20">
@@ -1178,7 +1222,6 @@ function initMap() {
     </div>
   </div>
 </section>
-
 <!-- ══════════ PAYMENTS ══════════ -->
 <section class="py-16 text-center" style="border-top:1px solid rgba(212,175,55,0.1);">
   <p class="section-label mb-10" data-en="Payments Accepted" data-fr="Paiements acceptés">Payments Accepted</p>
@@ -1192,13 +1235,11 @@ function initMap() {
     <img src="https://www.jockey.com.au/media/wysiwyg/content_pages/BON-O-01582-Afterpay-1225_300.jpg" class="payment-logo" alt="Afterpay">
   </div>
 </section>
-
 <!-- ══════════ FOOTER ══════════ -->
 <footer id="contact">
   <img src="logo.png" class="h-10 mx-auto mb-6" alt="TirePilot">
   <p class="heading-font gold text-lg tracking-widest uppercase" data-en="TirePilot Mobile Tire" data-fr="TirePilot Service de pneus mobile">TirePilot Mobile Tire</p>
   <p class="mt-2 text-gray-400" data-en="Phone: +1 647-983-9134" data-fr="Téléphone: +1 647-983-9134">Phone: +1 647-983-9134</p>
-  <!-- Spinning tire footer graphic -->
   <div style="margin:30px auto 0;opacity:0.06;width:80px;">
     <svg viewBox="0 0 200 200" class="spin-slow" width="80" height="80">
       <circle cx="100" cy="100" r="90" fill="none" stroke="white" stroke-width="18"/>
@@ -1211,7 +1252,6 @@ function initMap() {
   </div>
   <p class="text-gray-600 text-xs mt-6 tracking-widest uppercase">© 2026 TirePilot · All Rights Reserved</p>
 </footer>
-
 <!-- BACK TO TOP -->
 <a id="backToTop" title="Back to Top" style="display:none;">
   <div style="background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(212,175,55,0.4);">
@@ -1222,7 +1262,6 @@ function initMap() {
 <!-- ══════════════════════════════════════════ -->
 <!--                   SCRIPTS                  -->
 <!-- ══════════════════════════════════════════ -->
-
 <script>
 /* ── CUSTOM CURSOR ── */
 const dot = document.getElementById('cursorDot');
@@ -1239,7 +1278,6 @@ document.querySelectorAll('a,button,.faq-question,.area-chip').forEach(el => {
   el.addEventListener('mouseleave', () => { ring.style.width='36px'; ring.style.height='36px'; ring.style.borderColor='rgba(212,175,55,0.6)'; dot.style.transform='translate(-50%,-50%) scale(1)'; });
 });
 </script>
-
 <script>
 /* ── LOADER ── */
 window.addEventListener('load', () => {
@@ -1251,7 +1289,6 @@ window.addEventListener('load', () => {
   }, 1300);
 });
 </script>
-
 <script>
 /* ── PARTICLES ── */
 (function() {
@@ -1296,7 +1333,6 @@ window.addEventListener('load', () => {
   animate();
 })();
 </script>
-
 <script>
 /* ── HERO PARALLAX ── */
 window.addEventListener('scroll', () => {
@@ -1304,7 +1340,6 @@ window.addEventListener('scroll', () => {
   if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
 });
 </script>
-
 <script>
 /* ── CARD ANIMATION ── */
 const observerCards = new IntersectionObserver(entries => {
@@ -1312,7 +1347,6 @@ const observerCards = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.card, .price-card, .how-step').forEach(el => observerCards.observe(el));
 </script>
-
 <script>
 /* ── STAT COUNTER ── */
 let counted = false;
@@ -1337,7 +1371,6 @@ new IntersectionObserver(entries => {
   }
 }).observe(statsSection);
 </script>
-
 <script>
 /* ── DOT NAV ── */
 function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); }
@@ -1350,7 +1383,6 @@ window.addEventListener('scroll', () => {
   if (map[current]) document.getElementById(map[current]).classList.add('active');
 });
 </script>
-
 <script>
 /* ── SCROLL ARROW ── */
 const arrow = document.getElementById('scrollArrow');
@@ -1361,7 +1393,6 @@ arrow.addEventListener('click', () => {
   if (next) next.scrollIntoView({ behavior: 'smooth' });
 });
 </script>
-
 <script>
 /* ── FAQ ACCORDION ── */
 document.querySelectorAll('.faq-question').forEach(q => {
@@ -1373,7 +1404,6 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 </script>
-
 <script>
 /* ── EN/FR TOGGLE ── */
 const langBtn = document.getElementById('langToggle');
@@ -1400,7 +1430,6 @@ langBtn.addEventListener('click', () => {
   });
 });
 </script>
-
 <script>
 /* ── CONTACT MODAL ── */
 const contactModal = document.getElementById('contactModal');
@@ -1408,7 +1437,6 @@ document.getElementById('contactLink').addEventListener('click', e => { e.preven
 document.querySelector('.closeModal').addEventListener('click', () => { contactModal.style.display = 'none'; });
 window.addEventListener('click', e => { if (e.target === contactModal) contactModal.style.display = 'none'; });
 </script>
-
 <script>
 /* ── FILE UPLOAD ── */
 const fileInput = document.getElementById('realFileInput');
@@ -1425,7 +1453,6 @@ fileInput.addEventListener('change', function() {
   }
 });
 </script>
-
 <script>
 /* ── PRIORITY TOGGLE ── */
 let priorityOn = false;
@@ -1439,7 +1466,6 @@ toggle.addEventListener('click', () => {
   priorityInput.value = priorityOn ? 'Yes' : 'No';
 });
 </script>
-
 <script>
 /* ── PAY ONLINE BUTTON ── */
 document.getElementById('payOnlineBtn').addEventListener('click', function() {
@@ -1471,7 +1497,6 @@ document.getElementById('payOnlineBtn').addEventListener('click', function() {
   }).catch(() => { if (paymentLink) window.open(paymentLink, '_blank'); });
 });
 </script>
-
 <script>
 /* ── FORM SUBMIT ── */
 document.getElementById('bookingForm').addEventListener('submit', function(e) {
@@ -1482,14 +1507,12 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     .catch(() => { gtag('event', 'ads_conversion_Form_1'); this.submit(); });
 });
 </script>
-
 <script>
 /* ── BACK TO TOP ── */
 const topBtn = document.getElementById('backToTop');
 window.addEventListener('scroll', () => { topBtn.style.display = window.scrollY > 300 ? 'block' : 'none'; });
 topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
-
 <script>
 /* ── PROMO COPY ── */
 function copyPromo() {
@@ -1500,11 +1523,236 @@ function copyPromo() {
   setTimeout(() => btn.innerText = original, 2000);
 }
 </script>
-
 <script>
 /* ── DISABLE RIGHT CLICK / F12 ── */
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.onkeydown = e => { if (e.keyCode === 123) return false; };
+</script>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--        PHONE FORMATTING  +  DISTANCE CALCULATOR          -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<script>
+/* ─────────────────────────────────────────────
+   1. PHONE INPUT — Canadian format (xxx) xxx-xxxx
+   ───────────────────────────────────────────── */
+(function() {
+  const phoneInput = document.getElementById('phoneInput');
+  if (!phoneInput) return;
+
+  phoneInput.addEventListener('input', function(e) {
+    // Strip everything except digits
+    let digits = this.value.replace(/\D/g, '').slice(0, 10);
+    let formatted = '';
+
+    if (digits.length === 0) {
+      formatted = '';
+    } else if (digits.length <= 3) {
+      formatted = '(' + digits;
+    } else if (digits.length <= 6) {
+      formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+    } else {
+      formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6,10);
+    }
+
+    this.value = formatted;
+  });
+
+  // Allow only digits and formatting characters
+  phoneInput.addEventListener('keydown', function(e) {
+    const allowed = ['Backspace','Delete','ArrowLeft','ArrowRight','Tab','Home','End'];
+    if (allowed.includes(e.key)) return;
+    if (!/^\d$/.test(e.key)) e.preventDefault();
+  });
+
+  // On paste — strip non-digits and reformat
+  phoneInput.addEventListener('paste', function(e) {
+    e.preventDefault();
+    const pasted = (e.clipboardData || window.clipboardData).getData('text');
+    const digits = pasted.replace(/\D/g, '').slice(0, 10);
+    let formatted = '';
+    if (digits.length >= 10) {
+      formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6,10);
+    } else if (digits.length >= 6) {
+      formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6);
+    } else if (digits.length >= 3) {
+      formatted = '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+    } else {
+      formatted = '(' + digits;
+    }
+    this.value = formatted;
+  });
+
+  // Validate on blur — must be exactly (xxx) xxx-xxxx (10 digits)
+  phoneInput.addEventListener('blur', function() {
+    const digits = this.value.replace(/\D/g, '');
+    if (digits.length > 0 && digits.length !== 10) {
+      this.style.borderColor = '#ef4444';
+      this.title = 'Please enter a 10-digit Canadian phone number';
+    } else {
+      this.style.borderColor = '';
+      this.title = '';
+    }
+  });
+
+  phoneInput.addEventListener('focus', function() {
+    this.style.borderColor = '';
+  });
+})();
+</script>
+
+<script>
+/* ─────────────────────────────────────────────
+   2. LOCATION DISTANCE CALCULATOR
+      Origin: 49 Lapsley Rd, Scarborough, ON M1B 1K1
+      Free zone: ≤ 25 km
+      Surcharge: (distance - 25) * $1.50 CAD per km
+   ───────────────────────────────────────────── */
+(function() {
+  const ORIGIN = '49 Lapsley Rd, Scarborough, ON M1B 1K1, Canada';
+  const FREE_KM = 25;
+  const RATE_PER_KM = 1.50;
+
+  const locationInput = document.getElementById('locationInput');
+  const resultBox     = document.getElementById('distanceResult');
+  const distText      = document.getElementById('distanceText');
+  const distCharge    = document.getElementById('distanceCharge');
+  const distBarFill   = document.getElementById('distBarFill');
+  const travelHidden  = document.getElementById('travelChargeInput');
+
+  let debounceTimer = null;
+
+  function showLoading() {
+    resultBox.className = 'loading';
+    resultBox.style.display = 'block';
+    document.querySelector('#distanceResult .dist-icon').textContent = '⏳';
+    distText.textContent = 'Calculating distance…';
+    distCharge.textContent = '';
+    distBarFill.style.width = '0%';
+    distBarFill.style.background = 'rgba(255,255,255,0.2)';
+  }
+
+  function showWithin(distanceKm, distanceText) {
+    resultBox.className = 'within-range';
+    resultBox.style.display = 'block';
+    document.querySelector('#distanceResult .dist-icon').textContent = '✅';
+    distText.textContent = distanceText + ' from our base — within free service zone';
+    distCharge.textContent = 'No travel surcharge applies. You\'re good to go!';
+    travelHidden.value = 'No charge (within 25 km)';
+
+    // Bar fill — proportional to 25 km max
+    const pct = Math.min((distanceKm / FREE_KM) * 100, 100);
+    distBarFill.style.width = pct + '%';
+    distBarFill.style.background = 'linear-gradient(90deg, #22c55e, #4ade80)';
+  }
+
+  function showOutOfRange(distanceKm, distanceText) {
+    const extraKm   = distanceKm - FREE_KM;
+    const charge    = (extraKm * RATE_PER_KM).toFixed(2);
+    resultBox.className = 'out-of-range';
+    resultBox.style.display = 'block';
+    document.querySelector('#distanceResult .dist-icon').textContent = '📍';
+    distText.textContent = distanceText + ' from our base — exceeds 25 km free zone';
+    distCharge.textContent =
+      `First 25 km free · Extra ${extraKm.toFixed(1)} km × $${RATE_PER_KM.toFixed(2)}/km = $${charge} CAD travel charge`;
+    travelHidden.value = `$${charge} CAD (${distanceKm.toFixed(1)} km — ${extraKm.toFixed(1)} km over free zone)`;
+
+    // Bar: show overage visually — capped at 150% relative
+    const pct = Math.min((distanceKm / (FREE_KM * 1.5)) * 100, 100);
+    distBarFill.style.width = pct + '%';
+    distBarFill.style.background = 'linear-gradient(90deg, var(--gold), var(--gold-light))';
+  }
+
+  function showError(msg) {
+    resultBox.className = 'loading';
+    resultBox.style.display = 'block';
+    document.querySelector('#distanceResult .dist-icon').textContent = '⚠️';
+    distText.textContent = msg || 'Could not find this location. Please be more specific.';
+    distCharge.textContent = '';
+    distBarFill.style.width = '0%';
+    travelHidden.value = 'Unknown';
+  }
+
+  function calculateDistance(address) {
+    if (!address || address.trim().length < 5) {
+      resultBox.style.display = 'none';
+      travelHidden.value = 'None';
+      return;
+    }
+
+    // Wait for Google Maps API
+    if (!window._mapsReady) {
+      window._pendingDistanceCheck = () => calculateDistance(address);
+      return;
+    }
+
+    showLoading();
+
+    const service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+      {
+        origins: [ORIGIN],
+        destinations: [address + ', Ontario, Canada'],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC,
+        avoidHighways: false,
+        avoidTolls: false,
+      },
+      function(response, status) {
+        if (status !== 'OK') {
+          showError('Could not calculate distance. Please refine your location.');
+          return;
+        }
+
+        const element = response.rows[0].elements[0];
+
+        if (element.status === 'NOT_FOUND' || element.status === 'ZERO_RESULTS') {
+          showError('Location not found. Try adding your city (e.g. "Yonge & Bloor, Toronto").');
+          return;
+        }
+
+        if (element.status !== 'OK') {
+          showError('Could not calculate distance for this address.');
+          return;
+        }
+
+        const distanceMeters = element.distance.value;
+        const distanceKm     = distanceMeters / 1000;
+        const distanceLabel  = element.distance.text; // e.g. "12.5 km"
+
+        if (distanceKm <= FREE_KM) {
+          showWithin(distanceKm, distanceLabel);
+        } else {
+          showOutOfRange(distanceKm, distanceLabel);
+        }
+      }
+    );
+  }
+
+  // Debounce — fire 900ms after user stops typing
+  locationInput.addEventListener('input', function() {
+    clearTimeout(debounceTimer);
+    const val = this.value.trim();
+
+    if (val.length < 5) {
+      resultBox.style.display = 'none';
+      travelHidden.value = 'None';
+      return;
+    }
+
+    debounceTimer = setTimeout(() => {
+      calculateDistance(val);
+    }, 900);
+  });
+
+  // Also trigger on blur for immediate feedback
+  locationInput.addEventListener('blur', function() {
+    clearTimeout(debounceTimer);
+    const val = this.value.trim();
+    if (val.length >= 5) calculateDistance(val);
+  });
+
+})();
 </script>
 
 </body>
